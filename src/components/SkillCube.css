@@ -1,0 +1,106 @@
+.stacks-3d-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2.5rem;
+  padding: 4rem 1rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  justify-items: center;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+.cube-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cube-container {
+  width: 120px;
+  height: 120px;
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cube {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.cube:hover, .cube.is-hovered {
+  transform: rotateX(45deg) rotateY(45deg);
+}
+
+.cube-face {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  background: rgba(15, 15, 15, 1);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backface-visibility: visible;
+  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.cube:hover, .cube.is-hovered {
+  transform: rotateX(45deg) rotateY(45deg) scale(1.15);
+}
+
+.cube:hover .cube-face, .cube.is-hovered .cube-face {
+  border-color: rgba(255, 255, 255, 1);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+}
+
+.face-front  { transform: rotateY(0deg) translateZ(45px); }
+.face-back   { transform: rotateY(180deg) translateZ(45px); }
+.face-right  { transform: rotateY(90deg) translateZ(45px); }
+.face-left   { transform: rotateY(-90deg) translateZ(45px); }
+.face-top    { transform: rotateX(90deg) translateZ(45px); }
+.face-bottom { transform: rotateX(-90deg) translateZ(45px); }
+
+.cube-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  transition: 0.3s;
+}
+
+.cube-logo.dark-logo {
+  filter: brightness(0) invert(1);
+}
+
+.cube:hover .cube-logo, .cube.is-hovered .cube-logo {
+  transform: scale(1.15);
+}
+
+.skill-name-floating {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.cube-wrapper:hover .skill-name-floating {
+  color: #fbff00;
+  letter-spacing: 2px;
+}
