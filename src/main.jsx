@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
+import { Analytics } from "@vercel/analytics/next"
 import App from "./App.jsx";
 import "./styles/globals.css";
 
@@ -9,5 +9,6 @@ ReactDOM.createRoot(
 ).render(
   <React.StrictMode>
     <App />
+    <Analytics />
   </React.StrictMode>
 );
