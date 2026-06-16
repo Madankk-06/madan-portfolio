@@ -8,7 +8,7 @@ Designed with a strong focus on user experience, smooth animations, physics-base
 
 ## 🌐 Live Demo
 
-🔗 Portfolio Website: [Coming Soon]
+🔗 Portfolio Website: https://madan-portfolio-orcin.vercel.app/
 
 🔗 GitHub Repository: https://github.com/Madankk-06/madan-portfolio
 
@@ -176,33 +176,37 @@ src/
 
 # 🖼️ Screenshots
 
+## Loader Section
+
+![Loader Section](screenshots/loader.jpeg)
+
 ## Hero Section
 
-![Hero Section](screenshots/hero.png)
+![Hero Section](screenshots/hero.jpeg)
 
 ---
 
 ## Skills Section
 
-![Skills Section](screenshots/skills.png)
+![Skills Section](screenshots/skills.jpeg)
 
 ---
 
 ## Projects Carousel
 
-![Projects Section](screenshots/projects.png)
+![Projects Section](screenshots/projects.jpeg)
 
 ---
 
 ## Experience Section
 
-![Experience Section](screenshots/experience.png)
+![Experience Section](screenshots/experience.jpeg)
 
 ---
 
 ## Contact Section
 
-![Contact Section](screenshots/contact.png)
+![Contact Section](screenshots/contact.jpeg)
 
 ---
 
