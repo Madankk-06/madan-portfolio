@@ -1,9 +1,21 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function SmokyButton({ href, download, isCircle, children, target, rel, title }) {
   const canvasRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    const checkMobile = () => {
+      const mobile = window.innerWidth <= 768 || 'ontouchstart' in window;
+      setIsMobile(mobile);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -172,12 +184,13 @@ export default function SmokyButton({ href, download, isCircle, children, target
     return () => {
       cancelAnimationFrame(animationId);
       window.removeEventListener("resize", resize);
+      gl.bindBuffer(gl.ARRAY_BUFFER, null);
       gl.deleteBuffer(buffer);
       gl.deleteProgram(program);
       gl.deleteShader(vs);
       gl.deleteShader(fs);
     };
-  }, []);
+  }, [isMobile]);
 
   return (
     <a
@@ -188,9 +201,11 @@ export default function SmokyButton({ href, download, isCircle, children, target
       title={title}
       className={`smoky-btn cursor-target ${isCircle ? "is-circle" : ""}`}
     >
-      <div className="smoky-canvas-wrapper">
-        <canvas ref={canvasRef} className="smoky-canvas" />
-      </div>
+      {!isMobile && (
+        <div className="smoky-canvas-wrapper">
+          <canvas ref={canvasRef} className="smoky-canvas" />
+        </div>
+      )}
       <div className="smoky-content">
         <div className="smoky-text">{children}</div>
       </div>
