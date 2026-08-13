@@ -1,20 +1,82 @@
 import { useEffect, useRef } from 'react';
 import './PixelCard.css';
 
+const FONT = {
+  V: [
+    [1,0,0,0,1],
+    [1,0,0,0,1],
+    [1,0,0,0,1],
+    [0,1,0,1,0],
+    [0,0,1,0,0]
+  ],
+  I: [
+    [1,1,1,1,1],
+    [0,0,1,0,0],
+    [0,0,1,0,0],
+    [0,0,1,0,0],
+    [1,1,1,1,1]
+  ],
+  E: [
+    [1,1,1,1,1],
+    [1,0,0,0,0],
+    [1,1,1,1,0],
+    [1,0,0,0,0],
+    [1,1,1,1,1]
+  ],
+  W: [
+    [1,0,0,0,1],
+    [1,0,0,0,1],
+    [1,0,1,0,1],
+    [1,0,1,0,1],
+    [0,1,0,1,0]
+  ]
+};
+
+function isTextPixel(col, row, startCol, startRow) {
+  const c = col - startCol;
+  const r = row - startRow;
+  if (r < 0 || r >= 5) return false;
+  
+  // V
+  if (c >= 0 && c < 5) return FONT.V[r][c] === 1;
+  // space
+  if (c === 5) return false;
+  // I
+  if (c >= 6 && c < 11) return FONT.I[r][c - 6] === 1;
+  // space
+  if (c === 11) return false;
+  // E
+  if (c >= 12 && c < 17) return FONT.E[r][c - 12] === 1;
+  // space
+  if (c === 17) return false;
+  // W
+  if (c >= 18 && c < 23) return FONT.W[r][c - 18] === 1;
+  
+  return false;
+}
+
 class Pixel {
-  constructor(canvas, context, x, y, color, speed, delay) {
+  constructor(canvas, context, x, y, color, speed, delay, isText = false) {
     this.width = canvas.width;
     this.height = canvas.height;
     this.ctx = context;
     this.x = x;
     this.y = y;
-    this.color = color;
+    this.color = isText ? '#f2ff00' : color;
     this.speed = this.getRandomValue(0.1, 0.9) * speed;
     this.size = 0;
-    this.sizeStep = Math.random() * 0.4;
-    this.minSize = 0.5;
-    this.maxSizeInteger = 2;
-    this.maxSize = this.getRandomValue(this.minSize, this.maxSizeInteger);
+    this.isText = isText;
+    if (this.isText) {
+      this.sizeStep = 0.5;
+      this.minSize = 1.8;
+      this.maxSizeInteger = 3.8;
+      this.maxSize = 3.8;
+    } else {
+      this.sizeStep = Math.random() * 0.4;
+      this.minSize = 0.5;
+      this.maxSizeInteger = 2;
+      this.maxSize = this.getRandomValue(this.minSize, this.maxSizeInteger);
+    }
     this.delay = delay;
     this.counter = 0;
     this.counterStep = Math.random() * 4 + (this.width + this.height) * 0.01;
@@ -164,8 +226,18 @@ export default function PixelCard({
 
     const colorsArray = finalColors.split(',');
     const pxs = [];
-    for (let x = 0; x < width; x += parseInt(finalGap, 10)) {
-      for (let y = 0; y < height; y += parseInt(finalGap, 10)) {
+    
+    const gapVal = parseInt(finalGap, 10);
+    const colsCount = Math.floor(width / gapVal);
+    const rowsCount = Math.floor(height / gapVal);
+    
+    const startCol = Math.max(0, Math.floor((colsCount - 23) / 2));
+    const startRow = Math.max(0, Math.floor((rowsCount - 5) / 2));
+
+    let colIdx = 0;
+    for (let x = 0; x < width; x += gapVal) {
+      let rowIdx = 0;
+      for (let y = 0; y < height; y += gapVal) {
         const color = colorsArray[Math.floor(Math.random() * colorsArray.length)];
 
         const dx = x - width / 2;
@@ -173,8 +245,21 @@ export default function PixelCard({
         const distance = Math.sqrt(dx * dx + dy * dy);
         const delay = reducedMotion ? 0 : distance;
 
-        pxs.push(new Pixel(canvasRef.current, ctx, x, y, color, getEffectiveSpeed(finalSpeed, reducedMotion), delay));
+        const isText = isTextPixel(colIdx, rowIdx, startCol, startRow);
+
+        pxs.push(new Pixel(
+          canvasRef.current, 
+          ctx, 
+          x, 
+          y, 
+          color, 
+          getEffectiveSpeed(finalSpeed, reducedMotion), 
+          delay, 
+          isText
+        ));
+        rowIdx++;
       }
+      colIdx++;
     }
     pixelsRef.current = pxs;
   };
