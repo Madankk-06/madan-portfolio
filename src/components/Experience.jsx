@@ -1,5 +1,5 @@
 import FadeInSection from "./FadeInSection";
-import ScrollStack, { ScrollStackItem } from "./ScrollStack";
+import Stack from "./ExperienceStack";
 
 const experiences = [
   {
@@ -23,6 +23,22 @@ const experiences = [
 ];
 
 export default function Experience() {
+  const cards = experiences.map((exp, index) => (
+    <div
+      key={exp.role}
+      className={`experience-stack-card card-theme-${index} cursor-target`}
+    >
+      <div className="experience-header">
+        <h3>{exp.role}</h3>
+        <h4>{exp.company}</h4>
+        <span>{exp.period}</span>
+      </div>
+      <p className="experience-desc">
+        {exp.description}
+      </p>
+    </div>
+  ));
+
   return (
     <FadeInSection>
       <section id="experience">
@@ -30,31 +46,14 @@ export default function Experience() {
           EXPERIENCE
         </h2>
         <div className="experience-stack-wrapper">
-          <ScrollStack
-            itemDistance={30}
-            itemScale={0.025}
-            itemStackDistance={20}
-            stackPosition="15%"
-            baseScale={0.88}
-            blurAmount={2}
-            useWindowScroll={true}
-          >
-            {experiences.map((exp, index) => (
-              <ScrollStackItem
-                key={exp.role}
-                itemClassName={`experience-stack-card card-theme-${index} cursor-target`}
-              >
-                <div className="experience-header">
-                  <h3>{exp.role}</h3>
-                  <h4>{exp.company}</h4>
-                  <span>{exp.period}</span>
-                </div>
-                <p className="experience-desc">
-                  {exp.description}
-                </p>
-              </ScrollStackItem>
-            ))}
-          </ScrollStack>
+          <Stack
+            cards={cards}
+            autoplay={true}
+            autoplayDelay={4500}
+            pauseOnHover={true}
+            sendToBackOnClick={true}
+            sensitivity={120}
+          />
         </div>
       </section>
     </FadeInSection>
