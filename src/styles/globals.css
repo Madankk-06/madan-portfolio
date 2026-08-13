@@ -51,9 +51,19 @@ section {
   background: #0c0c0c;
 }
 
+html {
+  scrollbar-color: #f2ff00 #0c0c0c;
+  scrollbar-width: thin;
+}
+
 ::-webkit-scrollbar-thumb {
-  background: #444;
+  background: #f2ff00;
   border-radius: 999px;
+  border: 1.5px solid #0c0c0c;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d4e000;
 }
 
 /* ==========================================

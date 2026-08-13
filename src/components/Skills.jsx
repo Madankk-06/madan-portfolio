@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { portfolioData } from "../data/portfolioData";
 import FadeInSection from "./FadeInSection";
 import "./SkillCube.css";
@@ -37,20 +37,7 @@ export default function Skills() {
   const [activeIndices, setActiveIndices] = useState(new Set());
   const [cols, setCols] = useState(5);
 
-  useEffect(() => {
-    const updateCols = () => {
-      const width = window.innerWidth;
-      if (width <= 768) setCols(3);
-      else if (width <= 1024) setCols(4);
-      else setCols(5);
-    };
-
-    updateCols();
-    window.addEventListener("resize", updateCols);
-    return () => window.removeEventListener("resize", updateCols);
-  }, []);
-
-  const handleHover = (index) => {
+  const handleHover = useCallback((index) => {
     const x1 = index % cols;
     const y1 = Math.floor(index / cols);
     const totalItems = portfolioData.stacks.length;
@@ -73,7 +60,33 @@ export default function Skills() {
         }, 250); 
       }, delay);
     }
-  };
+  }, [cols]);
+
+  useEffect(() => {
+    const updateCols = () => {
+      const width = window.innerWidth;
+      if (width <= 768) setCols(3);
+      else if (width <= 1024) setCols(4);
+      else setCols(5);
+    };
+
+    updateCols();
+    window.addEventListener("resize", updateCols);
+    return () => window.removeEventListener("resize", updateCols);
+  }, []);
+
+  useEffect(() => {
+    const isMobile = window.innerWidth <= 768;
+    if (!isMobile) return;
+
+    // Trigger a gentle wave from a random center index every 4.5s on mobile
+    const interval = setInterval(() => {
+      const randomIndex = Math.floor(Math.random() * portfolioData.stacks.length);
+      handleHover(randomIndex);
+    }, 4500);
+
+    return () => clearInterval(interval);
+  }, [cols, handleHover]);
 
   return (
     <FadeInSection>

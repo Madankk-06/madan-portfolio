@@ -716,3 +716,105 @@
     line-height: 1.6;
   }
 }
+
+/* --- Mobile Horizontal Projects Slider --- */
+@media (max-width: 768px) {
+  .mobile-projects-section {
+    padding: 4rem 1rem;
+    overflow: hidden;
+  }
+  
+  .mobile-projects-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    width: 100%;
+  }
+
+  .mobile-cube-wrapper {
+    position: relative;
+    width: 100%;
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 800px;
+    z-index: 2;
+  }
+
+  .mobile-scene {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 !important;
+  }
+
+  .mobile-scene .pcube {
+    --s: 110px;
+    width: 110px;
+    height: 110px;
+  }
+
+  .mobile-projects-slider {
+    width: 100%;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1.25rem;
+    padding: 1rem 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    z-index: 5;
+  }
+
+  .mobile-projects-slider::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mobile-project-card {
+    flex: 0 0 88%;
+    width: 88%;
+    scroll-snap-align: center;
+    background: rgba(12, 13, 16, 0.85);
+    border: 1px solid rgba(242, 255, 0, 0.2);
+    border-radius: 16px;
+    padding: 1.5rem 1.25rem;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+    transition: border-color 0.3s ease;
+  }
+
+  .mobile-project-card:hover {
+    border-color: rgba(242, 255, 0, 0.4);
+  }
+
+  .mobile-projects-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 0.5rem;
+  }
+
+  .mobile-projects-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.25);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .mobile-projects-dot.active {
+    background: #f2ff00;
+    transform: scale(1.3);
+  }
+}

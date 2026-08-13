@@ -18,7 +18,6 @@ const itemVariants = {
     x: 0,
     scale: 1,
   },
-  // FIX: explicit exit state so blur resets cleanly when once={false}
   exit: (direction) => ({
     opacity: 0,
     filter: "blur(8px)",
@@ -26,6 +25,34 @@ const itemVariants = {
     x: direction === "left" ? 60 : direction === "right" ? -60 : 0,
     scale: 0.97,
   }),
+};
+
+// Impressive mobile specific spring perspective reveal
+const mobileItemVariants = {
+  hidden: () => ({
+    opacity: 0,
+    scale: 0.88,
+    rotateX: 10,
+    y: 35,
+    filter: "blur(4px)",
+  }),
+  visible: {
+    opacity: 1,
+    scale: 1,
+    rotateX: 0,
+    y: 0,
+    filter: "blur(0px)",
+    transition: {
+      type: "spring",
+      stiffness: 90,
+      damping: 14,
+    },
+  },
+  exit: {
+    opacity: 0,
+    scale: 0.88,
+    y: 35,
+  },
 };
 
 const containerVariants = (staggerDelay) => ({
@@ -46,7 +73,6 @@ function useViewportAmount(amount) {
 
   useEffect(() => {
     const check = () => {
-      // On narrow screens amount=0.15 fires too early — bump it on desktop
       setResolved(window.innerWidth < 768 ? Math.min(amount, 0.1) : amount);
     };
     check();
@@ -61,19 +87,6 @@ function useViewportAmount(amount) {
 
 /**
  * FadeInSection
- *
- * Props:
- *   direction     "up" | "down" | "left" | "right"  (default "up")
- *   delay         number in seconds                  (default 0)
- *   duration      number in seconds                  (default 0.75)
- *   stagger       boolean — stagger direct children  (default false)
- *   staggerDelay  seconds between each child         (default 0.12)
- *   cascade       boolean — stagger DOM children of
- *                 a single wrapper without needing
- *                 an explicit array                  (default false)
- *   once          boolean — animate once or replay   (default true)
- *   amount        0–1 how much must be in view       (default 0.15)
- *   className     string
  */
 export default function FadeInSection({
   children,
@@ -89,6 +102,16 @@ export default function FadeInSection({
 }) {
   const reducedMotion = useReducedMotion();
   const resolvedAmount = useViewportAmount(amount);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const transition = {
     duration,
@@ -97,7 +120,9 @@ export default function FadeInSection({
     filter: { duration: duration * 0.8 },
   };
 
-  // ── reduced motion: opacity-only, no movement, no blur ───────────────────
+  const activeVariants = isMobile ? mobileItemVariants : itemVariants;
+
+  // ── reduced motion ────────────────────────────────────────────────────────
   if (reducedMotion) {
     return (
       <motion.div
@@ -112,9 +137,7 @@ export default function FadeInSection({
     );
   }
 
-  // ── cascade: wraps a single parent and staggers its DOM children ──────────
-  // Use this when you can't pass an array but want sequential child animation.
-  // e.g. <FadeInSection cascade><ul>...</ul></FadeInSection>
+  // ── cascade ───────────────────────────────────────────────────────────────
   if (cascade) {
     return (
       <motion.div
@@ -127,8 +150,8 @@ export default function FadeInSection({
       >
         <motion.div
           custom={direction}
-          variants={itemVariants}
-          transition={transition}
+          variants={activeVariants}
+          transition={isMobile ? undefined : transition}
         >
           {children}
         </motion.div>
@@ -136,7 +159,7 @@ export default function FadeInSection({
     );
   }
 
-  // ── stagger: explicit array of children animate in sequence ───────────────
+  // ── stagger ───────────────────────────────────────────────────────────────
   if (stagger) {
     const kids = Array.isArray(children) ? children : [children];
     return (
@@ -151,8 +174,8 @@ export default function FadeInSection({
           <motion.div
             key={i}
             custom={direction}
-            variants={itemVariants}
-            transition={transition}
+            variants={activeVariants}
+            transition={isMobile ? undefined : transition}
           >
             {child}
           </motion.div>
@@ -161,16 +184,16 @@ export default function FadeInSection({
     );
   }
 
-  // ── default: single section fade ─────────────────────────────────────────
+  // ── default ──────────────────────────────────────────────────────────────
   return (
     <motion.div
       className={className}
       custom={direction}
-      variants={itemVariants}
+      variants={activeVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once, amount: resolvedAmount }}
-      transition={transition}
+      transition={isMobile ? undefined : transition}
     >
       {children}
     </motion.div>

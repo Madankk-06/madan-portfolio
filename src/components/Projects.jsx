@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./ProjectsCube.css";
 import SmokyButton from "./SmokyButton";
 import FadeInSection from "./FadeInSection";
@@ -145,6 +145,9 @@ const easeIO = (t) => (t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t);
 
 /* ─── component ─── */
 export default function Projects() {
+  const [isMobile, setIsMobile] = useState(false);
+  const [activeMobileIdx, setActiveMobileIdx] = useState(0);
+
   const galleryRef = useRef(null);
   const stickyRef = useRef(null);
   const cubeRef = useRef(null);
@@ -155,8 +158,20 @@ export default function Projects() {
   const hudPctRef = useRef(null);
   const hudFillRef = useRef(null);
   const hudNameRef = useRef(null);
+  const mobileSliderRef = useRef(null);
 
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) return;
+
     let raf;
     let lastNow = performance.now();
     let lastIdx = -1;
@@ -242,7 +257,7 @@ export default function Projects() {
     updateActive(0);
     raf = requestAnimationFrame(frame);
     return () => cancelAnimationFrame(raf);
-  }, []);
+  }, [isMobile]);
 
   const handleDotClick = (idx) => {
     const gallery = galleryRef.current;
@@ -253,6 +268,134 @@ export default function Projects() {
     const targetY = galleryTop + progress * scrollable;
     window.scrollTo({ top: targetY, behavior: "smooth" });
   };
+
+  const handleMobileScroll = () => {
+    const el = mobileSliderRef.current;
+    if (!el) return;
+    const scrollLeft = el.scrollLeft;
+    const itemWidth = el.scrollWidth / PROJECTS.length;
+    const idx = Math.min(
+      PROJECTS.length - 1,
+      Math.max(0, Math.round(scrollLeft / itemWidth))
+    );
+    setActiveMobileIdx(idx);
+  };
+
+  const getMobileCubeTransform = (idx) => {
+    const stops = [
+      { rx: 0, ry: 0 },
+      { rx: 0, ry: -90 },
+      { rx: 0, ry: -180 },
+      { rx: 0, ry: -270 },
+      { rx: -90, ry: 0 },
+      { rx: 90, ry: 0 },
+    ];
+    const stop = stops[idx] || stops[0];
+    return `rotateX(${stop.rx}deg) rotateY(${stop.ry}deg)`;
+  };
+
+  if (isMobile) {
+    return (
+      <section id="projects" className="mobile-projects-section">
+        <FadeInSection once={true}>
+          <h2 className="section-title">Projects</h2>
+        </FadeInSection>
+
+        <div className="mobile-projects-container">
+          {/* 3D Cube Scene positioned behind/below the cards */}
+          <div className="mobile-cube-wrapper">
+            <div className="pcube-scene mobile-scene">
+              <div
+                className="pcube"
+                style={{
+                  transform: getMobileCubeTransform(activeMobileIdx),
+                  transition: "transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)",
+                }}
+              >
+                {PROJECTS.map((p, i) => (
+                  <div key={i} className="pcube-face" data-face={FACE_ORDER[i]}>
+                    {p.image && <img src={p.image} alt={p.name} />}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Horizontal scroll container of cards */}
+          <div
+            className="mobile-projects-slider"
+            ref={mobileSliderRef}
+            onScroll={handleMobileScroll}
+          >
+            {PROJECTS.map((p, i) => (
+              <div key={i} className="mobile-project-card">
+                <div className="pcube-card-line" style={{ transform: "scaleX(1)" }} />
+                <div className="pcube-card-tag">{p.tag}</div>
+                <h3 className="pcube-card-title" style={{ opacity: 1, translate: "none" }}>{p.heading}</h3>
+                <p className="pcube-card-desc">{p.description}</p>
+                <div className="pcube-card-tech">
+                  {p.tech.map((t) => (
+                    <span key={t}>{t}</span>
+                  ))}
+                </div>
+                <div style={{ marginTop: "1.25rem", display: "flex", justifyContent: "flex-start" }}>
+                  <SmokyButton href={p.github} target="_blank" rel="noopener noreferrer">
+                    VIEW
+                  </SmokyButton>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Slider Pagination Dots */}
+          <div className="mobile-projects-dots">
+            {PROJECTS.map((_, i) => (
+              <button
+                key={i}
+                className={`mobile-projects-dot ${i === activeMobileIdx ? "active" : ""}`}
+                onClick={() => {
+                  const el = mobileSliderRef.current;
+                  if (!el) return;
+                  const itemWidth = el.scrollWidth / PROJECTS.length;
+                  el.scrollTo({ left: i * itemWidth, behavior: "smooth" });
+                }}
+                aria-label={`Go to project ${i + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* ── All Projects Grid ── */}
+        <FadeInSection once={true} amount={0.1}>
+          <div className="pcube-all-section">
+            <h3 className="pcube-all-title">Browse More</h3>
+            <div className="pcube-all-grid">
+              {ALL_PROJECTS.map((p, i) => (
+                <a
+                  key={i}
+                  href={p.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="pcube-all-card"
+                >
+                  <span className="pcube-all-card-num">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h4>{p.heading.replace(/\s*\n\s*/g, " ")}</h4>
+                  <p>{p.description}</p>
+                  <div className="pcube-all-card-tech">
+                    {p.tech.map((t) => (
+                      <span key={t}>{t}</span>
+                    ))}
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </FadeInSection>
+      </section>
+    );
+  }
 
   return (
     <section id="projects">
