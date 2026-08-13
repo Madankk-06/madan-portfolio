@@ -1,18 +1,14 @@
-import { useEffect, useState } from "react";
 import Ferrofluid from "./Ferrofluid";
 
 export default function FerrofluidBackground() {
-  const [dpr, setDpr] = useState(1);
+  // Determine WebGL rendering resolution synchronously during initial render to prevent rapid context recreation
+  const getInitialDpr = () => {
+    if (typeof window === "undefined") return 1;
+    const isMobile = window.innerWidth <= 768 || 'ontouchstart' in window;
+    return isMobile ? 0.35 : 1;
+  };
 
-  useEffect(() => {
-    const checkMobile = () => {
-      const isMobile = window.innerWidth <= 768 || 'ontouchstart' in window;
-      setDpr(isMobile ? 0.35 : 1);
-    };
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
+  const dpr = getInitialDpr();
 
   return (
     <div className="global-ferrofluid">

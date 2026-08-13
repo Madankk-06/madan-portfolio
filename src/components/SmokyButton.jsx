@@ -1,18 +1,15 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export default function SmokyButton({ href, download, isCircle, children, target, rel, title }) {
   const canvasRef = useRef(null);
-  const [isMobile, setIsMobile] = useState(false);
 
-  useEffect(() => {
-    const checkMobile = () => {
-      const mobile = window.innerWidth <= 768 || 'ontouchstart' in window;
-      setIsMobile(mobile);
-    };
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
+  // Synchronous checks on render prevent dual-context mounts/unmounts
+  const checkMobile = () => {
+    if (typeof window === "undefined") return false;
+    return window.innerWidth <= 768 || 'ontouchstart' in window;
+  };
+
+  const isMobile = checkMobile();
 
   useEffect(() => {
     if (isMobile) return;
