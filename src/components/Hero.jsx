@@ -72,38 +72,20 @@ export default function Hero() {
           />
         </motion.div>
 
-        {/* Animated Scroll Indicator (Transformed from user's chevron reference) */}
+        {/* Animated Scroll Indicator (User custom CSS chevron design) */}
         <motion.div
-          className="hero-scroll-indicator"
+          className="hero-scroll-container cursor-target"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.8 }}
           onClick={() => {
             document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
           }}
-          style={{
-            marginTop: "60px",
-            cursor: "pointer",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center"
-          }}
         >
-          <svg
-            width="36"
-            height="54"
-            viewBox="0 0 36 54"
-            fill="none"
-            stroke="#f2ff00"
-            strokeWidth="2.8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="hero-scroll-arrows"
-          >
-            <path className="arrow-1" d="M 4,4 L 32,4 L 18,18 Z" />
-            <path className="arrow-2" d="M 4,20 L 32,20 L 18,34 Z" />
-            <path className="arrow-3" d="M 4,36 L 32,36 L 18,50 Z" />
-          </svg>
+          <div className="hero-scroll-chevron"></div>
+          <div className="hero-scroll-chevron"></div>
+          <div className="hero-scroll-chevron"></div>
+          <span className="hero-scroll-text">Scroll down</span>
         </motion.div>
       </motion.div>
       <div className="hero-bottom-fade"></div>

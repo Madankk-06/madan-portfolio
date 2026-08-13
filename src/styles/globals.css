@@ -193,44 +193,90 @@ section {
   position: relative;
 }
 
-@keyframes chevronPulse {
-  0% {
-    opacity: 0.25;
-  }
-  50% {
+.hero-scroll-container {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  margin: 60px auto 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-scroll-chevron {
+  position: absolute;
+  width: 28px;
+  height: 8px;
+  opacity: 0;
+  transform: scale3d(0.5, 0.5, 0.5);
+  animation: hero-scroll-move 3s ease-out infinite;
+}
+
+.hero-scroll-chevron:first-child {
+  animation: hero-scroll-move 3s ease-out 1s infinite;
+}
+
+.hero-scroll-chevron:nth-child(2) {
+  animation: hero-scroll-move 3s ease-out 2s infinite;
+}
+
+.hero-scroll-chevron:before,
+.hero-scroll-chevron:after {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 51%;
+  background: #f2ff00;
+}
+
+.hero-scroll-chevron:before {
+  left: 0;
+  transform: skew(0deg, 30deg);
+}
+
+.hero-scroll-chevron:after {
+  right: 0;
+  width: 50%;
+  transform: skew(0deg, -30deg);
+}
+
+@keyframes hero-scroll-move {
+  25% {
     opacity: 1;
   }
+  33% {
+    opacity: 1;
+    transform: translateY(30px);
+  }
+  67% {
+    opacity: 1;
+    transform: translateY(40px);
+  }
   100% {
-    opacity: 0.25;
+    opacity: 0;
+    transform: translateY(55px) scale3d(0.5, 0.5, 0.5);
   }
 }
 
-@keyframes indicatorBounce {
-  0%, 100% {
-    transform: translateY(0);
+.hero-scroll-text {
+  display: block;
+  margin-top: 130px;
+  font-family: "Kanit", sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #fff;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: .25;
+  animation: hero-scroll-pulse 2s linear alternate infinite;
+}
+
+@keyframes hero-scroll-pulse {
+  to {
+    opacity: 1;
   }
-  50% {
-    transform: translateY(10px);
-  }
-}
-
-.hero-scroll-indicator {
-  animation: indicatorBounce 2s infinite ease-in-out;
-  transition: opacity 0.3s;
-}
-
-.hero-scroll-indicator:hover {
-  opacity: 0.8;
-}
-
-.hero-scroll-arrows .arrow-1 {
-  animation: chevronPulse 1.8s infinite 0s;
-}
-.hero-scroll-arrows .arrow-2 {
-  animation: chevronPulse 1.8s infinite 0.2s;
-}
-.hero-scroll-arrows .arrow-3 {
-  animation: chevronPulse 1.8s infinite 0.4s;
 }
 .hero-bottom-fade{
   background:
