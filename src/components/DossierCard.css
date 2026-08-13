@@ -617,7 +617,7 @@
 }
 
 .dossier-text {
-  font: 400 14px/1.8 var(--sans);
+  font: 400 14px/1.8 "Times New Roman", Times, serif;
   text-align: justify;
   color: rgba(241, 245, 249, 0.8);
 }

@@ -115,7 +115,7 @@ export default function DossierCard() {
 
           <div className="dossier-sideCaption">
             <b>Madan KK</b>
-            <span>FULL STACK DEVELOPER</span>
+            <span>GENERATIVE AI ENGINEER</span>
           </div>
         </div>
 
@@ -140,7 +140,7 @@ export default function DossierCard() {
 
               <div className="dossier-musicInfo">
                 <b>Imagine Dragons</b>
-                <span>Believer</span>
+                <span>BELIEVER</span>
                 <div className="dossier-musicBars">
                   <i></i>
                   <i></i>
@@ -173,7 +173,7 @@ export default function DossierCard() {
             </div>
 
             <div className="dossier-quote">
-              "The only History that is worth a damn is the history i make today."
+              "THE HISTORY WORTH REMEMBERING IS THE HISTORY I CREATE TODAY."
             </div>
           </div>
 
@@ -197,19 +197,19 @@ export default function DossierCard() {
                 <div className="dossier-dossierMeta">
                   <p>
                     <b>Role</b>
-                    <span>Full Stack Developer</span>
+                    <span>Generative AI Engineer</span>
                   </p>
                   <p>
                     <b>Degree</b>
-                    <span>MCA (Generative AI)</span>
+                    <span>Master of Computer Application</span>
                   </p>
                   <p>
                     <b>Location</b>
                     <span>Bengaluru, India</span>
                   </p>
                   <p>
-                    <b>Specialty</b>
-                    <span>Product based thinking</span>
+                    <b>Specialization</b>
+                    <span>Generative AI </span>
                   </p>
                   <p>
                     <b>Email</b>
