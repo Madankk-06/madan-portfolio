@@ -1689,7 +1689,7 @@ section {
   display: grid;
   grid-template-columns: 1fr 1fr;
 
-  background: rgba(225, 225, 1, 0.9);
+  background: #f2cb2e;
 
   border-radius: 28px;
 
