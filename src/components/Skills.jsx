@@ -33,60 +33,85 @@ function SkillCube({ skill, isHovered, onMouseEnter, onMouseLeave }) {
   );
 }
 
-export default function Skills() {
-  const [activeIndices, setActiveIndices] = useState(new Set());
-  const [cols, setCols] = useState(5);
+const STACK_CATEGORIES = [
+  {
+    name: "Languages & Foundations",
+    icon: "bi bi-braces",
+    skillNames: ["Java", "Python", "JavaScript", "Algorithms"]
+  },
+  {
+    name: "Artificial Intelligence & ML",
+    icon: "bi bi-cpu",
+    skillNames: ["Gen AI", "NLP", "R - Learning", "ADK", "PyTorch", "Scikit-Learn", "Jupyter"]
+  },
+  {
+    name: "Frameworks & Design",
+    icon: "bi bi-window-sidebar",
+    skillNames: ["React.js", "Next.js", "Vite", "Figma"]
+  },
+  {
+    name: "Back-End & Databases",
+    icon: "bi bi-database",
+    skillNames: ["Node.js", "REST APIs", "MySQL", "MongoDB", "Firebase", "Supabase"]
+  },
+  {
+    name: "Cloud & Dev Tools",
+    icon: "bi bi-cloud",
+    skillNames: ["Google Cloud", "AWS", "Git", "GitHub"]
+  }
+];
 
-  const handleHover = useCallback((index) => {
-    const x1 = index % cols;
-    const y1 = Math.floor(index / cols);
-    const totalItems = portfolioData.stacks.length;
+export default function Skills() {
+  const [activeSkills, setActiveSkills] = useState(new Set());
+
+  // Group stacks dynamically from portfolioData
+  const categories = STACK_CATEGORIES.map(cat => ({
+    ...cat,
+    items: cat.skillNames.map(name => 
+      portfolioData.stacks.find(s => s.name === name)
+    ).filter(Boolean)
+  }));
+
+  // Impressive 1D horizontal row-ripple wave animation
+  const handleHover = useCallback((categoryIndex, itemIndex) => {
+    const category = categories[categoryIndex];
+    if (!category) return;
+    const totalItems = category.items.length;
 
     for (let i = 0; i < totalItems; i++) {
-      const x2 = i % cols;
-      const y2 = Math.floor(i / cols);
-      const distance = Math.abs(x1 - x2) + Math.abs(y1 - y2);
-      
-      const delay = distance * 85; 
-      
+      const distance = Math.abs(itemIndex - i);
+      const delay = distance * 85; // 85ms delay per step along the row
+      const skillName = category.items[i].name;
+
       setTimeout(() => {
-        setActiveIndices(prev => new Set([...prev, i]));
+        setActiveSkills(prev => new Set([...prev, skillName]));
         setTimeout(() => {
-          setActiveIndices(prev => {
+          setActiveSkills(prev => {
             const next = new Set(prev);
-            next.delete(i);
+            next.delete(skillName);
             return next;
           });
         }, 250); 
       }, delay);
     }
-  }, [cols]);
-
-  useEffect(() => {
-    const updateCols = () => {
-      const width = window.innerWidth;
-      if (width <= 768) setCols(3);
-      else if (width <= 1024) setCols(4);
-      else setCols(5);
-    };
-
-    updateCols();
-    window.addEventListener("resize", updateCols);
-    return () => window.removeEventListener("resize", updateCols);
-  }, []);
+  }, [categories]);
 
   useEffect(() => {
     const isMobile = window.innerWidth <= 768;
     if (!isMobile) return;
 
-    // Trigger a gentle wave from a random center index every 4.5s on mobile
+    // Trigger a gentle wave in a random category every 4.5s on mobile
     const interval = setInterval(() => {
-      const randomIndex = Math.floor(Math.random() * portfolioData.stacks.length);
-      handleHover(randomIndex);
+      const randomCatIdx = Math.floor(Math.random() * categories.length);
+      const category = categories[randomCatIdx];
+      if (category && category.items.length > 0) {
+        const randomItemIdx = Math.floor(Math.random() * category.items.length);
+        handleHover(randomCatIdx, randomItemIdx);
+      }
     }, 4500);
 
     return () => clearInterval(interval);
-  }, [cols, handleHover]);
+  }, [categories, handleHover]);
 
   return (
     <FadeInSection>
@@ -95,15 +120,27 @@ export default function Skills() {
           STACKS
         </h2>
 
-        <div className="stacks-3d-grid">
-          {portfolioData.stacks.map((skill, index) => (
-            <SkillCube 
-              key={skill.name} 
-              skill={skill} 
-              isHovered={activeIndices.has(index)}
-              onMouseEnter={() => handleHover(index)}
-              onMouseLeave={() => setActiveIndices(new Set())}
-            />
+        <div className="stacks-categories-container">
+          {categories.map((cat, catIdx) => (
+            <div key={cat.name} className="stacks-category-group">
+              <div className="stacks-category-header">
+                <i className={cat.icon}></i>
+                <h3>{cat.name}</h3>
+                <div className="stacks-category-line"></div>
+              </div>
+
+              <div className="stacks-3d-grid">
+                {cat.items.map((skill, itemIdx) => (
+                  <SkillCube 
+                    key={skill.name} 
+                    skill={skill} 
+                    isHovered={activeSkills.has(skill.name)}
+                    onMouseEnter={() => handleHover(catIdx, itemIdx)}
+                    onMouseLeave={() => setActiveSkills(new Set())}
+                  />
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </section>
