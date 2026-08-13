@@ -1535,32 +1535,19 @@ html {
 .experience-stack-card:hover::after {
   opacity: 1;
 }
-.experience-stack-card ul {
+.experience-desc {
+  font-size: 1.1rem;
+  line-height: 1.85;
+  color: rgba(255, 255, 255, 0.85);
   margin-top: 1.5rem;
-  padding: 0;
-  list-style: none;
-  
-  @media (max-width: 768px) {
+  font-weight: 400;
+}
+@media (max-width: 768px) {
+  .experience-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
     margin-top: 1rem;
   }
-}
-
-.experience-stack-card li {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: rgba(255,255,255,0.85);
-  margin-bottom: 1.2rem;
-  position: relative;
-  padding-left: 0;
-
-  @media (max-width: 768px) {
-    font-size: 0.9rem;
-    line-height: 1.5;
-  }
-}
-
-.experience-stack-card li::before {
-  display: none;
 }
 .contact-card {
   background: linear-gradient(135deg, #0a0a0a 45%, #18191b 45.2%);
