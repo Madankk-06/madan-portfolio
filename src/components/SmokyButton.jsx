@@ -3,16 +3,7 @@ import { useEffect, useRef } from "react";
 export default function SmokyButton({ href, download, isCircle, children, target, rel, title }) {
   const canvasRef = useRef(null);
 
-  // Synchronous checks on render prevent dual-context mounts/unmounts
-  const checkMobile = () => {
-    if (typeof window === "undefined") return false;
-    return window.innerWidth <= 768 || 'ontouchstart' in window;
-  };
-
-  const isMobile = checkMobile();
-
   useEffect(() => {
-    if (isMobile) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -181,13 +172,12 @@ export default function SmokyButton({ href, download, isCircle, children, target
     return () => {
       cancelAnimationFrame(animationId);
       window.removeEventListener("resize", resize);
-      gl.bindBuffer(gl.ARRAY_BUFFER, null);
       gl.deleteBuffer(buffer);
       gl.deleteProgram(program);
       gl.deleteShader(vs);
       gl.deleteShader(fs);
     };
-  }, [isMobile]);
+  }, []);
 
   return (
     <a
@@ -198,11 +188,9 @@ export default function SmokyButton({ href, download, isCircle, children, target
       title={title}
       className={`smoky-btn cursor-target ${isCircle ? "is-circle" : ""}`}
     >
-      {!isMobile && (
-        <div className="smoky-canvas-wrapper">
-          <canvas ref={canvasRef} className="smoky-canvas" />
-        </div>
-      )}
+      <div className="smoky-canvas-wrapper">
+        <canvas ref={canvasRef} className="smoky-canvas" />
+      </div>
       <div className="smoky-content">
         <div className="smoky-text">{children}</div>
       </div>
