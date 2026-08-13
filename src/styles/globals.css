@@ -1448,9 +1448,10 @@ html {
     0 40px 100px rgba(0, 0, 0, 0.95) !important;
 }
 .card-theme-0:hover {
-  border-color: rgba(242, 255, 0, 0.55) !important;
+  background: linear-gradient(165deg, #222017 0%, #0f0e0b 100%) !important;
+  border-color: rgba(242, 255, 0, 0.58) !important;
   box-shadow: 
-    0 0 45px rgba(242, 255, 0, 0.22),
+    0 0 45px rgba(242, 255, 0, 0.28),
     0 40px 100px rgba(0, 0, 0, 0.95) !important;
 }
 
@@ -1462,9 +1463,10 @@ html {
     0 40px 100px rgba(0, 0, 0, 0.95) !important;
 }
 .card-theme-1:hover {
-  border-color: rgba(96, 165, 250, 0.55) !important;
+  background: linear-gradient(165deg, #171d29 0%, #0a0b12 100%) !important;
+  border-color: rgba(96, 165, 250, 0.58) !important;
   box-shadow: 
-    0 0 45px rgba(96, 165, 250, 0.22),
+    0 0 45px rgba(96, 165, 250, 0.28),
     0 40px 100px rgba(0, 0, 0, 0.95) !important;
 }
 
@@ -1476,9 +1478,10 @@ html {
     0 40px 100px rgba(0, 0, 0, 0.95) !important;
 }
 .card-theme-2:hover {
-  border-color: rgba(168, 85, 247, 0.55) !important;
+  background: linear-gradient(165deg, #24192e 0%, #0e0914 100%) !important;
+  border-color: rgba(168, 85, 247, 0.58) !important;
   box-shadow: 
-    0 0 45px rgba(168, 85, 247, 0.22),
+    0 0 45px rgba(168, 85, 247, 0.28),
     0 40px 100px rgba(0, 0, 0, 0.95) !important;
 }
 
@@ -1522,7 +1525,7 @@ html {
   backdrop-filter: blur(40px);
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
   padding: 3rem !important;
 
   @media (max-width: 768px) {
@@ -1591,6 +1594,7 @@ html {
 
 .experience-stack-card:hover {
   transform: translateY(-15px) scale(1.02);
+  filter: brightness(1.22) !important;
 }
 .experience-desc {
   font-size: 1.1rem;
