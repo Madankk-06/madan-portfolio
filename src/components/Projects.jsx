@@ -342,7 +342,7 @@ export default function Projects() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    GitHub
+                    VIEW
                   </SmokyButton>
                 </div>
               </div>
