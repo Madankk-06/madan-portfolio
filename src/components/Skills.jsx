@@ -23,7 +23,6 @@ export default function Skills() {
             className={`skill-marquee-icon ${logoClass} ${isDarkLogo ? "dark-logo" : ""}`} 
           />
         </div>
-        <span className="skill-marquee-name">{skill.name}</span>
       </div>
     );
   };
