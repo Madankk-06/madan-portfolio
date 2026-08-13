@@ -1374,11 +1374,11 @@ html {
 }
 .stack-container {
   position: relative;
-  width: min(700px, 90vw);
-  height: 450px;
+  width: min(900px, 94vw);
+  height: 580px;
 
   @media (max-width: 768px) {
-    height: 520px;
+    height: 640px;
   }
 
   margin: 0 auto;
@@ -1450,29 +1450,32 @@ html {
 }
 .experience-header h3 {
   color: #f2ff00;
-  font-size: 2.2rem;
+  font-size: 2.6rem;
   font-weight: 800;
   margin-bottom: 1rem;
   line-height: 1.1;
+  font-family: 'Times New Roman', Times, serif;
 
   @media (max-width: 768px) {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
 }
 
 .experience-header h4 {
-  font-size: 1.25rem;
+  font-size: 1.4rem;
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
+  font-family: 'Times New Roman', Times, serif;
 
   @media (max-width: 768px) {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 }
 
 .experience-header span {
-  font-size: 1rem;
+  font-size: 1.05rem;
   color: rgba(255,255,255,0.7);
+  font-family: 'Times New Roman', Times, serif;
 }
 .experience-stack-card {
   position: relative;
@@ -1481,11 +1484,11 @@ html {
   backdrop-filter: blur(40px);
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  padding: 3rem !important;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 3.5rem !important;
 
   @media (max-width: 768px) {
-    padding: 2rem 1.75rem !important;
+    padding: 2.25rem 2rem !important;
   }
 }
 
@@ -1505,22 +1508,58 @@ html {
   pointer-events: none;
 }
 
+@keyframes exp-card-shine {
+  0%   { transform: translateX(-160%) skewX(-18deg); }
+  40%  { transform: translateX(160%) skewX(-18deg); }
+  100% { transform: translateX(160%) skewX(-18deg); }
+}
+
+.experience-stack-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 25%,
+    rgba(255, 255, 255, 0.06) 38%,
+    rgba(255, 255, 255, 0.22) 50%,
+    rgba(255, 255, 255, 0.06) 62%,
+    transparent 75%
+  );
+  z-index: 3;
+  transform: translateX(-160%) skewX(-18deg);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.experience-stack-card:hover::after {
+  opacity: 1;
+  animation: exp-card-shine 0.75s ease-out forwards;
+}
+
 .experience-stack-card:hover {
-  transform: translateY(-15px) scale(1.02);
-  border-color: rgba(255, 255, 255, 0.2) !important;
-  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.9);
+  transform: translateY(-12px) scale(1.02);
+  border-color: rgba(255, 255, 255, 0.28) !important;
+  box-shadow:
+    0 0 20px rgba(255, 255, 255, 0.07),
+    0 40px 80px rgba(0, 0, 0, 0.95);
 }
 .experience-desc {
-  font-size: 1.1rem;
-  line-height: 1.85;
+  font-size: 1.2rem;
+  line-height: 1.9;
   color: rgba(255, 255, 255, 0.85);
   margin-top: 1.5rem;
   font-weight: 400;
+  font-family: 'Times New Roman', Times, serif;
 }
 @media (max-width: 768px) {
   .experience-desc {
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-size: 1.05rem;
+    line-height: 1.7;
     margin-top: 1rem;
   }
 }
