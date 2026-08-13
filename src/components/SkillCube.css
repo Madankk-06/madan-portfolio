@@ -60,6 +60,23 @@
   filter: brightness(0) invert(1);
 }
 
+/* Custom vibrant color filters for black logos */
+.skill-marquee-icon.nextjs {
+  filter: invert(73%) sepia(79%) saturate(1937%) hue-rotate(143deg) brightness(105%) contrast(108%) !important; /* Neon Cyan */
+}
+
+.skill-marquee-icon.github {
+  filter: invert(46%) sepia(97%) saturate(2586%) hue-rotate(244deg) brightness(97%) contrast(100%) !important; /* Neon Purple */
+}
+
+.skill-marquee-icon.algorithms {
+  filter: invert(84%) sepia(76%) saturate(2627%) hue-rotate(17deg) brightness(107%) contrast(106%) !important; /* Theme Yellow */
+}
+
+.skill-marquee-icon.scikitlearn {
+  filter: invert(61%) sepia(92%) saturate(462%) hue-rotate(93deg) brightness(96%) contrast(92%) !important; /* Neon Green */
+}
+
 .skill-marquee-name {
   font-family: "Kanit", sans-serif;
   font-size: 1.18rem;
