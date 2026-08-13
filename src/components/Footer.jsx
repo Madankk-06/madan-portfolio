@@ -12,15 +12,14 @@ export default function Footer() {
           {/* Left */}
           <div className="footer-brand">
 
-            <h3>Madan KK</h3>
+            <h3>MADAN KK</h3>
 
             <p className="footer-role">
-              Gen AI Engineer & Full Stack Developer
+              GENERATIVE AI ENGINEER
             </p>
 
             <p className="footer-description">
-              Building AI-powered applications,
-              modern web experiences and scalable systems.
+              ENGINEERING INTELLIGENT SYSTEMS TODAY FOR THE PROBLEMS THE WORLD WILL FACE TOMORROW. I WORK WHERE LOGIC BECOMES PRODUCT, WHERE MODELS MEET CODE, DATA MEETS DECISIONS, AND IDEAS BECOME EXPERIENCES.
             </p>
 
           </div>
@@ -28,26 +27,23 @@ export default function Footer() {
           {/* Center */}
           <div className="footer-links">
 
-            <h4>Quick Links</h4>
+            <h4>QUICK LINKS</h4>
 
             <a href="#about">
-              Know me
+              KNOW ME
             </a>
 
-            <a href="#stacks">
-              Stacks
-            </a>
 
             <a href="#projects">
-              Projects
+              PROJECTS
             </a>
 
             <a href="#experience">
-              Experience
+              EXPERIENCE
             </a>
 
             <a href="#contact">
-              Connect
+              CONNECT
             </a>
 
           </div>
@@ -55,14 +51,14 @@ export default function Footer() {
           {/* Right */}
           <div className="footer-connect">
 
-            <h4>Connect</h4>
+            <h4>CONTACT</h4>
 
             <a
               href={portfolioData.github}
               target="_blank"
               rel="noreferrer"
             >
-              GitHub
+              GITHUB
             </a>
 
             <a
@@ -70,7 +66,7 @@ export default function Footer() {
               target="_blank"
               rel="noreferrer"
             >
-              LinkedIn
+              LINKEDIN
             </a>
 
             <a
@@ -78,13 +74,13 @@ export default function Footer() {
               target="_blank"
               rel="noreferrer"
             >
-              LeetCode
+              LEETCODE
             </a>
 
             <a
               href={`mailto:${portfolioData.email}`}
             >
-              Email Me
+              EMAIL
             </a>
 
           </div>
