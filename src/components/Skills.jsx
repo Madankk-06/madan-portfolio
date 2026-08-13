@@ -15,15 +15,11 @@ export default function Skills() {
     const logoClass = skill.name.toLowerCase().replace(/[^a-z0-9]/g, "");
     
     return (
-      <div className="skill-marquee-card cursor-target">
-        <div className="skill-marquee-icon-wrapper">
-          <img 
-            src={skill.logo} 
-            alt={skill.name} 
-            className={`skill-marquee-icon ${logoClass} ${isDarkLogo ? "dark-logo" : ""}`} 
-          />
-        </div>
-      </div>
+      <img 
+        src={skill.logo} 
+        alt={skill.name} 
+        className={`skill-marquee-logo ${logoClass} ${isDarkLogo ? "dark-logo" : ""}`} 
+      />
     );
   };
 
@@ -40,8 +36,8 @@ export default function Skills() {
             logos={row1}
             speed={60}
             direction="left"
-            logoHeight={64}
-            gap={32}
+            logoHeight={85}
+            gap={64}
             fadeOut={true}
             fadeOutColor="#0c0c0c"
             renderItem={renderSkillItem}
@@ -53,8 +49,8 @@ export default function Skills() {
             logos={row2}
             speed={60}
             direction="right"
-            logoHeight={64}
-            gap={32}
+            logoHeight={85}
+            gap={64}
             fadeOut={true}
             fadeOutColor="#0c0c0c"
             renderItem={renderSkillItem}

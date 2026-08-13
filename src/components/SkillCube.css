@@ -1,5 +1,5 @@
 /* ==========================================
-   SKILLS MARQUEE LOOP
+   SKILLS MARQUEE LOOP (RAW IMAGES ONLY)
 ========================================== */
 
 .skills-section {
@@ -11,71 +11,56 @@
 .skills-marquee-container {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2.5rem;
   width: 100%;
   max-width: 1400px;
   margin: 3rem auto 0;
 }
 
-/* Custom Skill Card inside the Marquee */
-.skill-marquee-card {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 72px;
-  height: 72px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 50%;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform;
-}
-
-.skill-marquee-card:hover {
-  border-color: #f2ff00; /* Neon yellow theme color */
-  background: rgba(242, 255, 0, 0.04);
-  box-shadow: 0 8px 30px rgba(242, 255, 0, 0.15);
-  transform: translateY(-3px) scale(1.08);
-}
-
-.skill-marquee-icon-wrapper {
-  width: 36px;
-  height: 36px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.skill-marquee-icon {
-  height: 100%;
+/* Custom Skill Logo inside the Marquee */
+.skill-marquee-logo {
+  height: var(--logoloop-logoHeight);
   width: auto;
   object-fit: contain;
-  pointer-events: none;
+  pointer-events: auto; /* Allow hover scaling */
   -webkit-user-drag: none;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+  cursor: pointer;
 }
 
-.skill-marquee-icon.dark-logo {
-  filter: brightness(0) invert(1);
+.skill-marquee-logo:hover {
+  transform: scale(1.18);
+  filter: drop-shadow(0 4px 12px rgba(255, 255, 255, 0.15)) !important;
 }
 
 /* Custom vibrant color filters for black logos */
-.skill-marquee-icon.nextjs {
+.skill-marquee-logo.nextjs {
   filter: invert(73%) sepia(79%) saturate(1937%) hue-rotate(143deg) brightness(105%) contrast(108%) !important; /* Neon Cyan */
 }
+.skill-marquee-logo.nextjs:hover {
+  filter: invert(73%) sepia(79%) saturate(1937%) hue-rotate(143deg) brightness(105%) contrast(108%) drop-shadow(0 4px 15px rgba(0, 242, 255, 0.35)) !important;
+}
 
-.skill-marquee-icon.github {
+.skill-marquee-logo.github {
   filter: invert(46%) sepia(97%) saturate(2586%) hue-rotate(244deg) brightness(97%) contrast(100%) !important; /* Neon Purple */
 }
-
-.skill-marquee-icon.algorithms {
-  filter: invert(84%) sepia(76%) saturate(2627%) hue-rotate(17deg) brightness(107%) contrast(106%) !important; /* Theme Yellow */
+.skill-marquee-logo.github:hover {
+  filter: invert(46%) sepia(97%) saturate(2586%) hue-rotate(244deg) brightness(97%) contrast(100%) drop-shadow(0 4px 15px rgba(168, 85, 247, 0.35)) !important;
 }
 
-.skill-marquee-icon.scikitlearn {
+.skill-marquee-logo.algorithms {
+  filter: invert(84%) sepia(76%) saturate(2627%) hue-rotate(17deg) brightness(107%) contrast(106%) !important; /* Theme Yellow */
+}
+.skill-marquee-logo.algorithms:hover {
+  filter: invert(84%) sepia(76%) saturate(2627%) hue-rotate(17deg) brightness(107%) contrast(106%) drop-shadow(0 4px 15px rgba(242, 255, 0, 0.35)) !important;
+}
+
+.skill-marquee-logo.scikitlearn {
   filter: invert(61%) sepia(92%) saturate(462%) hue-rotate(93deg) brightness(96%) contrast(92%) !important; /* Neon Green */
+}
+.skill-marquee-logo.scikitlearn:hover {
+  filter: invert(61%) sepia(92%) saturate(462%) hue-rotate(93deg) brightness(96%) contrast(92%) drop-shadow(0 4px 15px rgba(34, 197, 94, 0.35)) !important;
 }
 
 /* Adjust layout on mobile */
@@ -85,17 +70,7 @@
   }
   
   .skills-marquee-container {
-    gap: 1rem;
+    gap: 1.5rem;
     margin-top: 2rem;
-  }
-
-  .skill-marquee-card {
-    width: 56px;
-    height: 56px;
-  }
-
-  .skill-marquee-icon-wrapper {
-    width: 26px;
-    height: 26px;
   }
 }
