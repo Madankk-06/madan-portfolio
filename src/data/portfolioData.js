@@ -134,7 +134,28 @@ My name is MADAN KK, An ambitious Generative AI and Data Analytics professional 
     {
         name: "Vite",
         logo: viteLogo
+    },
+    {
+        name: "Java",
+        // logo:
+    },
+    {
+      name: "Google Cloud",
+      // logo: 
+    },
+    {
+      name: "ADK",
+      // logo:
+    },
+    {
+      name: "R - Learning"
+      // logo: 
+    },
+    {
+      name: "NLP",
+      // logo: 
     }
+
 
   ],
 };

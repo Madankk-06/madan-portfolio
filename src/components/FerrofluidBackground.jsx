@@ -4,7 +4,7 @@ export default function FerrofluidBackground() {
   return (
     <div className="global-ferrofluid">
       <Ferrofluid
-        color="#3b82f6"
+        colors={["#3b82f6", "#1e3a8a", "#090d16"]}
         speed={0.25}
         scale={2}
         fluidity={0.15}
