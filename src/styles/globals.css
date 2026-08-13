@@ -347,9 +347,9 @@ section {
 
   font-weight: 800;
 
-  letter-spacing: -10px;
+  letter-spacing: 1px;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 2000px) {
     letter-spacing: -6px;
   }
 

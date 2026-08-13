@@ -42,7 +42,7 @@ export default function Hero() {
           transition={{ delay: 0.4 }}
           style={{
             margin: "0 auto 10px",
-            fontSize: "clamp(3rem, 14vw, 17.5rem)",
+            fontSize: "clamp(3.5rem, 15.8vw, 20rem)",
             lineHeight: "0.85"
           }}
         >
