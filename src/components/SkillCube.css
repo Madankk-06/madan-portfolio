@@ -1,131 +1,96 @@
-.stacks-3d-grid {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 2.5rem;
-  padding: 1.5rem 1rem 3.5rem;
-  max-width: 1100px;
-  margin: 0 auto;
+/* ==========================================
+   SKILLS MARQUEE LOOP
+========================================== */
 
-  @media (max-width: 768px) {
-    gap: 1.75rem;
-    padding: 1rem 0.5rem 2.5rem;
-  }
+.skills-section {
+  padding: 100px 4% 80px;
+  overflow: hidden;
+  position: relative;
 }
 
-.stacks-category-header {
+.skills-marquee-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1400px;
+  margin: 3rem auto 0;
+}
+
+/* Custom Skill Card inside the Marquee */
+.skill-marquee-card {
   display: flex;
   align-items: center;
   gap: 12px;
-  max-width: 1100px;
-  margin: 2.5rem auto 0.5rem;
-  padding: 0 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 99px;
+  padding: 10px 24px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
 }
 
-.stacks-category-header h3 {
-  font-family: "Kanit", sans-serif;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  white-space: nowrap;
+.skill-marquee-card:hover {
+  border-color: #f2ff00; /* Neon yellow theme color */
+  background: rgba(242, 255, 0, 0.04);
+  box-shadow: 0 8px 30px rgba(242, 255, 0, 0.1);
+  transform: translateY(-2px);
 }
 
-.stacks-category-header i {
-  font-size: 1.25rem;
-  color: #f2ff00; /* Neon yellow */
-}
-
-.stacks-category-line {
-  flex-grow: 1;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.cube-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-.cube-container {
-  width: 120px;
-  height: 120px;
-  perspective: 1000px;
+.skill-marquee-icon-wrapper {
+  width: 28px;
+  height: 28px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.cube {
-  position: relative;
-  width: 90px;
-  height: 90px;
-  transform-style: preserve-3d;
-  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.cube:hover, .cube.is-hovered {
-  transform: rotateX(45deg) rotateY(45deg);
-}
-
-.cube-face {
-  position: absolute;
-  width: 90px;
-  height: 90px;
-  background: rgba(15, 15, 15, 1);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  backface-visibility: visible;
-  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.cube:hover, .cube.is-hovered {
-  transform: rotateX(45deg) rotateY(45deg) scale(1.15);
-}
-
-.cube:hover .cube-face, .cube.is-hovered .cube-face {
-  border-color: rgba(255, 255, 255, 1);
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
-}
-
-.face-front  { transform: rotateY(0deg) translateZ(45px); }
-.face-back   { transform: rotateY(180deg) translateZ(45px); }
-.face-right  { transform: rotateY(90deg) translateZ(45px); }
-.face-left   { transform: rotateY(-90deg) translateZ(45px); }
-.face-top    { transform: rotateX(90deg) translateZ(45px); }
-.face-bottom { transform: rotateX(-90deg) translateZ(45px); }
-
-.cube-logo {
-  width: 48px;
-  height: 48px;
+.skill-marquee-icon {
+  height: 100%;
+  width: auto;
   object-fit: contain;
-  transition: 0.3s;
+  pointer-events: none;
+  -webkit-user-drag: none;
 }
 
-.cube-logo.dark-logo {
+.skill-marquee-icon.dark-logo {
   filter: brightness(0) invert(1);
 }
 
-.cube:hover .cube-logo, .cube.is-hovered .cube-logo {
-  transform: scale(1.15);
-}
-
-.skill-name-floating {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: rgba(255,255,255,0.5);
+.skill-marquee-name {
+  font-family: "Kanit", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #cbd5e1;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
-  transition: all 0.3s ease;
-  pointer-events: none;
 }
 
-.cube-wrapper:hover .skill-name-floating {
-  color: #fbff00;
-  letter-spacing: 2px;
+/* Adjust layout on mobile */
+@media (max-width: 768px) {
+  .skills-section {
+    padding: 60px 1.5rem 40px;
+  }
+  
+  .skills-marquee-container {
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .skill-marquee-card {
+    padding: 8px 18px;
+    gap: 10px;
+  }
+
+  .skill-marquee-icon-wrapper {
+    width: 24px;
+    height: 24px;
+  }
+
+  .skill-marquee-name {
+    font-size: 0.85rem;
+  }
 }
