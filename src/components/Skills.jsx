@@ -38,8 +38,8 @@ export default function Skills() {
             logos={row1}
             speed={60}
             direction="left"
-            logoHeight={48}
-            gap={24}
+            logoHeight={64}
+            gap={32}
             fadeOut={true}
             fadeOutColor="#0c0c0c"
             renderItem={renderSkillItem}
@@ -51,8 +51,8 @@ export default function Skills() {
             logos={row2}
             speed={60}
             direction="right"
-            logoHeight={48}
-            gap={24}
+            logoHeight={64}
+            gap={32}
             fadeOut={true}
             fadeOutColor="#0c0c0c"
             renderItem={renderSkillItem}
