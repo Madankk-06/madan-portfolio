@@ -12,10 +12,6 @@
 #projects > .section-title {
   padding: 100px 8% 2rem;
   margin-bottom: 0;
-  background: linear-gradient(180deg, #fffbbf 0%, #f2ff00 50%, #cca300 100%) !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
 }
 
 /* --- Gallery Scroll Container --- */

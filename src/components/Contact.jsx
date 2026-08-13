@@ -7,12 +7,12 @@ import SmokyButton from "./SmokyButton";
 import "./Contact.css";
 
 export default function Contact() {
-  const [message, setMessage] = useState("Contact through Portfolio");
+  const [message, setMessage] = useState("CONTACT THROUGH PORTFOLIO");
   const cardRef = useRef(null);
 
   const handleConnect = () => {
-    const email = portfolioData.email || "rammadyry8814@gmail.com";
-    const subject = encodeURIComponent("Contact through Portfolio");
+    const email = portfolioData.email || "madankk2004@gmail.com";
+    const subject = encodeURIComponent("CONTACT THROUGH PORTFOLIO");
     const body = encodeURIComponent(message);
     window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
   };
@@ -59,7 +59,7 @@ export default function Contact() {
             <div className="connect-avatar">
               <img src={mkLogo} alt="Madan Portrait" />
               <div className="info">
-                Generative AI Developer with a Business Brain
+                GENERATIVE AI DEVELOPER WIHT A BUSINESS BRAIN
               </div>
             </div>
           </div>
@@ -69,7 +69,7 @@ export default function Contact() {
             <div className="connect-content-center">
               <h3 className="connect-name">MADAN KK</h3>
               <p className="connect-subtitle">
-                GEN AI ENGINEER & FULL STACK DEVELOPER
+                GENERATIVE AI ENGINEER
               </p>
 
               {/* Chat Input Bar */}
