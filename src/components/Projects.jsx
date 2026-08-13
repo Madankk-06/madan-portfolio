@@ -4,86 +4,6 @@ import SmokyButton from "./SmokyButton";
 import FadeInSection from "./FadeInSection";
 import PixelCard from "./PixelCard";
 
-const FONT = {
-  V: [
-    [1,0,0,0,1],
-    [1,0,0,0,1],
-    [1,0,0,0,1],
-    [0,1,0,1,0],
-    [0,0,1,0,0]
-  ],
-  I: [
-    [1,1,1,1,1],
-    [0,0,1,0,0],
-    [0,0,1,0,0],
-    [0,0,1,0,0],
-    [1,1,1,1,1]
-  ],
-  E: [
-    [1,1,1,1,1],
-    [1,0,0,0,0],
-    [1,1,1,1,0],
-    [1,0,0,0,0],
-    [1,1,1,1,1]
-  ],
-  W: [
-    [1,0,0,0,1],
-    [1,0,0,0,1],
-    [1,0,1,0,1],
-    [1,0,1,0,1],
-    [0,1,0,1,0]
-  ]
-};
-
-function ViewDotted() {
-  const cols = 23;
-  const rows = 5;
-  const dotSize = 8;
-  const dotGap = 4;
-  const circles = [];
-
-  for (let r = 0; r < rows; r++) {
-    for (let c = 0; c < cols; c++) {
-      let active = false;
-      if (c >= 0 && c < 5) active = FONT.V[r][c] === 1;
-      else if (c >= 6 && c < 11) active = FONT.I[r][c - 6] === 1;
-      else if (c >= 12 && c < 17) active = FONT.E[r][c - 12] === 1;
-      else if (c >= 18 && c < 23) active = FONT.W[r][c - 18] === 1;
-
-      if (active) {
-        circles.push(
-          <circle
-            key={`${r}-${c}`}
-            cx={c * (dotSize + dotGap) + dotSize / 2}
-            cy={r * (dotSize + dotGap) + dotSize / 2}
-            r={dotSize / 2}
-            fill="#f2ff00"
-            className="pixelated-dot-pulse"
-            style={{
-              animationDelay: `${(r + c) * 0.05}s`
-            }}
-          />
-        );
-      }
-    }
-  }
-
-  const width = cols * (dotSize + dotGap) - dotGap;
-  const height = rows * (dotSize + dotGap) - dotGap;
-
-  return (
-    <svg
-      width={width}
-      height={height}
-      viewBox={`0 0 ${width} ${height}`}
-      className="pcube-dotted-view-svg"
-      style={{ overflow: "visible" }}
-    >
-      {circles}
-    </svg>
-  );
-}
-
 import toolkitImg from "../assets/projects/toolkit.jpg";
 import routingImg from "../assets/projects/routing.jpg";
 import anomalyImg from "../assets/projects/anomaly.jpg";
@@ -459,24 +379,19 @@ export default function Projects() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="pcube-all-card"
-                  colors="#18181b,#27272a,#3f3f46"
+                  colors="#f2ff00,#fde047,#eab308,#60a5fa"
                   gap={6}
                   speed={25}
                 >
-                  <div className="pcube-all-card-content">
-                    <span className="pcube-all-card-num">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <h4>{p.heading.replace(/\s*\n\s*/g, " ")}</h4>
-                    <p>{p.description}</p>
-                    <div className="pcube-all-card-tech">
-                      {p.tech.map((t) => (
-                        <span key={t}>{t}</span>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="pcube-all-card-hover-overlay">
-                    <ViewDotted />
+                  <span className="pcube-all-card-num">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h4>{p.heading.replace(/\s*\n\s*/g, " ")}</h4>
+                  <p>{p.description}</p>
+                  <div className="pcube-all-card-tech">
+                    {p.tech.map((t) => (
+                      <span key={t}>{t}</span>
+                    ))}
                   </div>
                 </PixelCard>
               ))}
@@ -600,24 +515,19 @@ export default function Projects() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="pcube-all-card"
-                colors="#18181b,#27272a,#3f3f46"
+                colors="#f2ff00,#fde047,#eab308,#60a5fa"
                 gap={6}
                 speed={25}
               >
-                <div className="pcube-all-card-content">
-                  <span className="pcube-all-card-num">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h4>{p.heading.replace(/\s*\n\s*/g, " ")}</h4>
-                  <p>{p.description}</p>
-                  <div className="pcube-all-card-tech">
-                    {p.tech.map((t) => (
-                      <span key={t}>{t}</span>
-                    ))}
-                  </div>
-                </div>
-                <div className="pcube-all-card-hover-overlay">
-                  <ViewDotted />
+                <span className="pcube-all-card-num">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h4>{p.heading.replace(/\s*\n\s*/g, " ")}</h4>
+                <p>{p.description}</p>
+                <div className="pcube-all-card-tech">
+                  {p.tech.map((t) => (
+                    <span key={t}>{t}</span>
+                  ))}
                 </div>
               </PixelCard>
             ))}
