@@ -1,120 +1,121 @@
 import { portfolioData } from "../data/portfolioData";
+import FadeInSection from "./FadeInSection";
 
 export default function Footer() {
   return (
     <footer id="footer">
+      <FadeInSection once={true} amount={0.1}>
+        <div className="footer-glow"></div>
 
-      <div className="footer-glow"></div>
+        <div className="footer-top">
 
-      <div className="footer-top">
+          {/* Left */}
+          <div className="footer-brand">
 
-        {/* Left */}
-        <div className="footer-brand">
+            <h3>Madan KK</h3>
 
-          <h3>Madan KK</h3>
+            <p className="footer-role">
+              Gen AI Engineer & Full Stack Developer
+            </p>
 
-          <p className="footer-role">
-            Gen AI Engineer & Full Stack Developer
-          </p>
+            <p className="footer-description">
+              Building AI-powered applications,
+              modern web experiences and scalable systems.
+            </p>
 
-          <p className="footer-description">
-            Building AI-powered applications,
-            modern web experiences and scalable systems.
-          </p>
+          </div>
+
+          {/* Center */}
+          <div className="footer-links">
+
+            <h4>Quick Links</h4>
+
+            <a href="#about">
+              Know me
+            </a>
+
+            <a href="#stacks">
+              Stacks
+            </a>
+
+            <a href="#projects">
+              Projects
+            </a>
+
+            <a href="#experience">
+              Experience
+            </a>
+
+            <a href="#contact">
+              Connect
+            </a>
+
+          </div>
+
+          {/* Right */}
+          <div className="footer-connect">
+
+            <h4>Connect</h4>
+
+            <a
+              href={portfolioData.github}
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub
+            </a>
+
+            <a
+              href={portfolioData.linkedin}
+              target="_blank"
+              rel="noreferrer"
+            >
+              LinkedIn
+            </a>
+
+            <a
+              href={portfolioData.leetcode}
+              target="_blank"
+              rel="noreferrer"
+            >
+              LeetCode
+            </a>
+
+            <a
+              href={`mailto:${portfolioData.email}`}
+            >
+              Email Me
+            </a>
+
+          </div>
 
         </div>
 
-        {/* Center */}
-        <div className="footer-links">
+        {/* <div className="footer-divider"></div> */}
 
-          <h4>Quick Links</h4>
+        <div className="footer-final">
 
-          <a href="#about">
-            Know me
-          </a>
+          <span>
+           
+          </span>
 
-          <a href="#stacks">
-            Stacks
-          </a>
+          <span >
+            
+          </span>
 
-          <a href="#projects">
-            Projects
-          </a>
+          <span>
+            React • Vite • Framer Motion • OGL | © 2026 Madan KK | Designed & Developed by Madan KK
+          </span>
 
-          <a href="#experience">
-            Experience
-          </a>
-
-          <a href="#contact">
-            Connect
-          </a>
+          <span >
+            
+          </span>
+          <span>
+            
+          </span>
 
         </div>
-
-        {/* Right */}
-        <div className="footer-connect">
-
-          <h4>Connect</h4>
-
-          <a
-            href={portfolioData.github}
-            target="_blank"
-            rel="noreferrer"
-          >
-            GitHub
-          </a>
-
-          <a
-            href={portfolioData.linkedin}
-            target="_blank"
-            rel="noreferrer"
-          >
-            LinkedIn
-          </a>
-
-          <a
-            href={portfolioData.leetcode}
-            target="_blank"
-            rel="noreferrer"
-          >
-            LeetCode
-          </a>
-
-          <a
-            href={`mailto:${portfolioData.email}`}
-          >
-            Email Me
-          </a>
-
-        </div>
-
-      </div>
-
-      {/* <div className="footer-divider"></div> */}
-
-      <div className="footer-final">
-
-        <span>
-         
-        </span>
-
-        <span >
-          
-        </span>
-
-        <span>
-          React • Vite • Framer Motion • OGL | © 2026 Madan KK | Designed & Developed by Madan KK
-        </span>
-
-        <span >
-          
-        </span>
-        <span>
-          
-        </span>
-
-      </div>
-
+      </FadeInSection>
     </footer>
   );
 }

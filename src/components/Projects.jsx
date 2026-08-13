@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import "./ProjectsCube.css";
 import SmokyButton from "./SmokyButton";
+import FadeInSection from "./FadeInSection";
 
 import toolkitImg from "../assets/projects/toolkit.jpg";
 import routingImg from "../assets/projects/routing.jpg";
@@ -255,7 +256,9 @@ export default function Projects() {
 
   return (
     <section id="projects">
-      <h2 className="section-title">Projects</h2>
+      <FadeInSection once={true}>
+        <h2 className="section-title">Projects</h2>
+      </FadeInSection>
 
       {/* ── Cube Gallery ── */}
       <div
@@ -352,31 +355,33 @@ export default function Projects() {
       </div>
 
       {/* ── All Projects Grid ── */}
-      <div className="pcube-all-section">
-        <h3 className="pcube-all-title">Browse More</h3>
-        <div className="pcube-all-grid">
-          {ALL_PROJECTS.map((p, i) => (
-            <a
-              key={i}
-              href={p.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="pcube-all-card"
-            >
-              <span className="pcube-all-card-num">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <h4>{p.heading.replace(/\s*\n\s*/g, " ")}</h4>
-              <p>{p.description}</p>
-              <div className="pcube-all-card-tech">
-                {p.tech.map((t) => (
-                  <span key={t}>{t}</span>
-                ))}
-              </div>
-            </a>
-          ))}
+      <FadeInSection once={true} amount={0.1}>
+        <div className="pcube-all-section">
+          <h3 className="pcube-all-title">Browse More</h3>
+          <div className="pcube-all-grid">
+            {ALL_PROJECTS.map((p, i) => (
+              <a
+                key={i}
+                href={p.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="pcube-all-card"
+              >
+                <span className="pcube-all-card-num">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h4>{p.heading.replace(/\s*\n\s*/g, " ")}</h4>
+                <p>{p.description}</p>
+                <div className="pcube-all-card-tech">
+                  {p.tech.map((t) => (
+                    <span key={t}>{t}</span>
+                  ))}
+                </div>
+              </a>
+            ))}
+          </div>
         </div>
-      </div>
+      </FadeInSection>
     </section>
   );
 }
