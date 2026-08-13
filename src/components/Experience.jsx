@@ -33,13 +33,13 @@ export default function Experience() {
         <div className="experience-stack-wrapper">
           <ScrollStack 
             useWindowScroll={true} 
-            itemDistance={70} 
+            itemDistance={208} 
             itemScale={0.03}
-            itemStackDistance={25}
+            itemStackDistance={30}
             stackPosition="20%"
             scaleEndPosition="10%"
-            baseScale={0.9}
-            blurAmount={1.5}
+            baseScale={0.85}
+            blurAmount={0}
           >
             {experiences.map((exp, index) => (
               <ScrollStackItem 
