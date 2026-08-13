@@ -1370,7 +1370,13 @@ html {
   margin-bottom:4rem;
 }
 #experience {
-  padding-top: 5rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 0;
+  box-sizing: border-box;
 }
 .stack-container {
   position: relative;
@@ -1384,7 +1390,6 @@ html {
 
   margin: 0 auto;
   perspective: 1000px;
-  transform: translate3d(18px, 14px, 0); /* Center the shifted deck visually */
 }
 .card-rotate {
   position: absolute;
@@ -1543,13 +1548,13 @@ html {
 
 @keyframes card-metallic-shine {
   0% {
-    left: -150%;
+    transform: translateX(-150%) skewX(-20deg);
   }
   35% {
-    left: 150%;
+    transform: translateX(150%) skewX(-20deg);
   }
   100% {
-    left: 150%;
+    transform: translateX(150%) skewX(-20deg);
   }
 }
 
@@ -1557,8 +1562,9 @@ html {
   content: "";
   position: absolute;
   top: 0;
+  left: 0;
   height: 100%;
-  width: 150%;
+  width: 100%;
   background: linear-gradient(
     105deg,
     transparent 30%,
@@ -1567,7 +1573,7 @@ html {
     transparent 60%
   );
   z-index: 2;
-  transform: skewX(-20deg);
+  transform: translateX(-150%) skewX(-20deg);
   animation: card-metallic-shine 6s infinite ease-in-out;
   pointer-events: none;
   opacity: 1 !important;
@@ -1585,10 +1591,6 @@ html {
 
 .experience-stack-card:hover {
   transform: translateY(-15px) scale(1.02);
-}
-
-.experience-stack-card:hover::after {
-  opacity: 1;
 }
 .experience-desc {
   font-size: 1.1rem;
