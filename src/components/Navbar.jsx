@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 const sections = [
   { id: "about", label: "Know me" },
   { id: "stacks", label: "Stacks" },
@@ -8,43 +9,31 @@ const sections = [
 ];
 
 export default function Navbar() {
-  const [active, setActive] =
-    useState("");
+  const [active, setActive] = useState("");
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPos =
-        window.scrollY + 150;
+    const observerOptions = {
+      root: null,
+      rootMargin: "-40% 0px -40% 0px", // detect intersecting sections centered in viewport
+      threshold: 0
+    };
 
-      sections.forEach((section) => {
-        const element =
-          document.getElementById(section.id);
-
-        if (!element) return;
-
-        if (
-          scrollPos >= element.offsetTop &&
-          scrollPos <
-            element.offsetTop +
-              element.offsetHeight
-        ) {
-          setActive(section.id);
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActive(entry.target.id);
         }
       });
     };
 
-    window.addEventListener(
-      "scroll",
-      handleScroll
-    );
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-    handleScroll();
+    sections.forEach((section) => {
+      const element = document.getElementById(section.id);
+      if (element) observer.observe(element);
+    });
 
-    return () =>
-      window.removeEventListener(
-        "scroll",
-        handleScroll
-      );
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -54,9 +43,7 @@ export default function Navbar() {
           key={section.id}
           href={`#${section.id}`}
           className={`nav-link cursor-target ${
-            active === section.id
-              ? "active"
-              : ""
+            active === section.id ? "active" : ""
           }`}
         >
           {section.label.toUpperCase()}

@@ -1,124 +1,93 @@
-import FadeInSection from "./FadeInSection";
+import mkLogo from "../assets/logo/mk-logo.png";
+import resumePdf from "../assets/resume/Madan_KK_Resume.pdf";
 import { portfolioData } from "../data/portfolioData";
-
-import githubLogo from "../assets/contact/github.png";
-import linkedinLogo from "../assets/contact/linkedin.png";
-import instagramLogo from "../assets/contact/instagram.png";
-import leetcodeLogo from "../assets/contact/leetcode.png";
-
-import avatar from "../assets/avatar/contact-madan.png";
-import Magnet from "./Magnet";
+import FadeInSection from "./FadeInSection";
+import SmokyButton from "./SmokyButton";
+import "./Contact.css";
 
 export default function Contact() {
   return (
     <FadeInSection>
       <section id="contact">
+        <h2 className="section-title">CONNECT</h2>
 
-        <h2 className="section-title">
-          Connect
-        </h2>
-
-        <div className="contact-main">
-
-          {/* LEFT SIDE */}
-          <div className="contact-left">
-
-            <div className="contact-content">
-
-              <h2 className="contact-heading">
-                GET IN TOUCH
-              </h2>
-
-              <p className="contact-subtitle">
-                Contact me for services
-              </p>
-
-              <a
-                href={`mailto:${portfolioData.email}`}
-                className="send-btn cursor-target"
-              >
-                SEND MAIL
-              </a>
-
-            </div>
-
-            <div className="social-section">
-
-              <h4>Reach me through : </h4>
-
-              <div className="social-grid">
-
-                <a
-                  href={portfolioData.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="social-item cursor-target"
-                >
-                  <img
-                    src={githubLogo}
-                    alt="GitHub"
-                  />
-                  <span><b>GitHub</b></span>
-                </a>
-
-                <a
-                  href={portfolioData.linkedin}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="social-item cursor-target"
-                >
-                  <img
-                    src={linkedinLogo}
-                    alt="LinkedIn"
-                  />
-                  <span><b>LinkedIn</b></span>
-                </a>
-
-                <a
-                  href="https://www.instagram.com/__.madan___?igsh=NThiOGZvMndlZG9x"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="social-item cursor-target"
-                >
-                  <img
-                    src={instagramLogo}
-                    alt="Instagram"
-                  />
-                  <span><b>Instagram</b></span>
-                </a>
-
-                <a
-                  href="https://leetcode.com/u/madankk-04122004/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="social-item cursor-target"
-                >
-                  <img
-                    src={leetcodeLogo}
-                    alt="LeetCode"
-                  />
-                  <span><b>LeetCode</b></span>
-                </a>
-
+        <article className="connect-post">
+          {/* Left Column: Avatar Image */}
+          <div className="connect-left">
+            <div className="connect-avatar">
+              <img src={mkLogo} alt="Madan Portrait" />
+              <div className="info">
+                Generative AI Developer with a Business Brain
               </div>
-
             </div>
-
           </div>
 
-          {/* RIGHT SIDE */}
-           <div className="contact-right">
-             <Magnet strength={15}>
-               <img
-                 src={avatar}
-                 alt="Madan"
-                 className="contact-avatar cursor-target"
-               />
-             </Magnet>
-           </div>
+          {/* Right Column: Connection info and buttons */}
+          <div className="connect-right">
 
-        </div>
+            <div className="connect-content-center">
+              <h3 className="connect-name">MADAN KK</h3>
+              <p className="connect-subtitle">
+                GEN AI ENGINEER & FULL STACK DEVELOPER
+              </p>
 
+              <div className="connect-social-bar">
+                {/* LinkedIn */}
+                <SmokyButton
+                  href={portfolioData.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="LinkedIn"
+                  isCircle={true}
+                >
+                  <i className="bi bi-linkedin"></i>
+                </SmokyButton>
+
+                {/* Mail */}
+                <SmokyButton
+                  href={`mailto:${portfolioData.email}`}
+                  title="Email"
+                  isCircle={true}
+                >
+                  <i className="bi bi-envelope-fill"></i>
+                </SmokyButton>
+
+                {/* GitHub */}
+                <SmokyButton
+                  href={portfolioData.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="GitHub"
+                  isCircle={true}
+                >
+                  <i className="bi bi-github"></i>
+                </SmokyButton>
+
+                {/* Instagram */}
+                <SmokyButton
+                  href="https://www.instagram.com/__.madan___?igsh=NThiOGZvMndlZG9x"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Instagram"
+                  isCircle={true}
+                >
+                  <i className="bi bi-instagram"></i>
+                </SmokyButton>
+
+                {/* Resume */}
+                <SmokyButton
+                  href={resumePdf}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Resume"
+                  isCircle={true}
+                >
+                  <i className="bi bi-file-earmark-pdf-fill"></i>
+                </SmokyButton>
+              </div>
+            </div>
+          </div>
+        </article>
       </section>
     </FadeInSection>
   );

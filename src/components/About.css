@@ -1,0 +1,296 @@
+/* --- About / Know Me Section Design --- */
+
+#about {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 8% 80px;
+  background: transparent;
+  position: relative;
+  z-index: 2;
+}
+
+#about > .section-title {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.about-post {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  gap: 4rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0 100px 0 16px;
+  padding: 3rem;
+  background: rgba(10, 12, 18, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.about-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-main .header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  height: 90px;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.about-main .header img {
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  height: 72px;
+  width: 72px;
+  border-radius: 50%;
+  border: 2px solid #60a5fa;
+  box-shadow: 0 0 15px rgba(96, 165, 250, 0.25);
+  object-position: center 15%;
+}
+
+.about-main .header .username {
+  font-family: 'Hello Bonia Serif', 'Playfair Display', 'Georgia', serif;
+  font-size: 3.2rem;
+  letter-spacing: 0.04em;
+  color: #fff;
+  line-height: 1;
+}
+
+.about-main .post-actions {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 0;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+  margin-top: 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.about-main .post-actions .link {
+  padding: .6rem .8rem;
+  background: #60a5fa;
+  color: #07080a;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-main .post-actions .fecha {
+  flex-grow: 1;
+  font-family: 'DM Mono', monospace;
+  font-size: .75rem;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.1em;
+  padding-left: 0.5rem;
+}
+
+.about-main .post-actions .post-buttons {
+  padding: 0 1rem;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+}
+
+.about-main .post-content {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: justify;
+  line-height: 1.8;
+  padding: 2.5rem 2rem;
+  height: 100%;
+  border-radius: 0 0 10px 10px;
+  background: rgba(255, 255, 255, 0.01);
+  color: rgba(232, 237, 245, 0.85);
+  font-size: 1.02rem;
+}
+
+.about-main .post-content p {
+  margin-bottom: 1.25rem;
+}
+
+.about-main .post-content p:last-child {
+  margin-bottom: 0;
+}
+
+.about-aside {
+  display: grid;
+  justify-content: center;
+  align-content: start;
+  gap: .75rem;
+}
+
+.about-avatar {
+  --avw: 320px;
+  --avh: 480px;
+  overflow: hidden;
+  width: max-content;
+  height: max-content;
+  border-radius: 160px 160px 0 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: .6rem;
+  position: relative;
+  transition: all .5s ease-in-out;
+  background: #0d0f15;
+}
+
+.about-avatar::before {
+  content: "";
+  width: 100%;
+  height: 170%;
+  position: absolute; 
+  top: -25%;
+  left: 0;
+  background: linear-gradient(transparent 35%, rgba(96, 165, 250, 0.55));
+  border-radius: 160px 160px 0 0;
+  transition: all .5s ease-in-out;
+  z-index: 1;
+  opacity: 0.5;
+}
+
+.about-avatar img {
+  transition: all .5s ease-in-out;
+  position: relative;
+  object-fit: cover;
+  width: var(--avw);
+  height: var(--avh);
+  border-radius: 160px 160px 0 0;
+  z-index: 0;
+  display: block;
+  transform: scale(1.1);
+  transform-origin: center 20%;
+  mix-blend-mode: normal;
+  filter: grayscale(100%) contrast(1.25) brightness(1.05);
+}
+
+.about-avatar .info {
+  transition: all .8s ease-in-out;
+  position: absolute;
+  color: white;
+  top: 0;
+  left: 0.6rem;
+  width: var(--avw);
+  height: var(--avh);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  filter: blur(10px);
+  opacity: 0;
+  z-index: 3;
+  padding: 1.5rem;
+  text-align: center;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+
+
+.about-avatar:hover {
+  border-color: rgba(96, 165, 250, 0.4);
+  box-shadow: 0 0 25px rgba(96, 165, 250, 0.2);
+}
+
+.about-avatar:hover::before {
+  top: -60%;
+  opacity: 0.85;
+}
+
+.about-avatar:hover img {
+  border-radius: 160px 160px 0 0;
+  filter: brightness(12%);
+}
+
+.about-avatar:hover .info {
+  opacity: 1;
+  filter: blur(0);
+}
+
+.about-contact {
+  width: 100%;
+  background: #60a5fa;
+  padding: .65rem;
+  color: #07080a;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 0 0 12px 12px;
+  font-size: 1.25rem;
+}
+
+.about-contact a {
+  transition: transform .3s ease-in-out, color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #07080a;
+}
+
+.about-contact a:hover {
+  transform: scale(1.25);
+  color: #fff;
+}
+
+/* --- Responsive Layout --- */
+@media (max-width: 900px) {
+  .about-post {
+    grid-template-columns: 1fr;
+    border-radius: 0 50px 0 16px;
+    padding: 1.5rem;
+    gap: 2rem;
+  }
+  
+  .about-aside {
+    order: -1;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .about-avatar {
+    --avw: 100%;
+    --avh: 300px;
+    width: 100%;
+    border-radius: 16px;
+  }
+
+  .about-avatar::before {
+    border-radius: 16px;
+  }
+
+  .about-avatar img {
+    width: 100%;
+    height: var(--avh);
+    border-radius: 12px;
+  }
+
+  .about-avatar .info {
+    width: 100%;
+    left: 0;
+  }
+
+  .about-avatar:hover img {
+    border-radius: 12px;
+  }
+
+  .about-main .header .username {
+    font-size: 2.2rem;
+  }
+  
+  .about-main .post-content {
+    padding: 1.75rem 1.25rem;
+  }
+}

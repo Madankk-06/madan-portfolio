@@ -1,383 +1,382 @@
-import { useEffect, useState } from "react";
-import FadeInSection from "./FadeInSection";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useRef } from "react";
+import "./ProjectsCube.css";
+import SmokyButton from "./SmokyButton";
 
-import portfolioImg from "../assets/projects/portfolio.png";
-import mkhomesImg from "../assets/projects/mkhomes.png";
-import routeImg from "../assets/projects/route-optimization.png";
-import recipeImg from "../assets/projects/recipe-agent.png";
-import fraudImg from "../assets/projects/car-fraud.png";
-import oapsImg from "../assets/projects/oaps.png";
-import magazineImg from "../assets/projects/tech-magazine.png";
+import toolkitImg from "../assets/projects/toolkit.jpg";
+import routingImg from "../assets/projects/routing.jpg";
+import anomalyImg from "../assets/projects/anomaly.jpg";
+import sentimentImg from "../assets/projects/sentiment.jpg";
+import signatureImg from "../assets/projects/signature.jpg";
+import translatorImg from "../assets/projects/translator.jpg";
 
-const projects = [
+/* ─── project data ─── */
+const PROJECTS = [
   {
-    title: "Portfolio Website",
+    name: "TOOLKIT",
+    faceName: "TOOLKIT",
+    tag: "01 — Developer Tools",
+    heading: "TOOLKIT\n APPLICATION",
     description:
-      "Premium personal portfolio showcasing AI, Full Stack, UI/UX projects, interactive experiences and advanced animations.",
-    tech: [
-      "React",
-      "Vite",
-      "Framer Motion",
-      "OGL",
-    ],
-    github: "https://github.com/Madankk-06/madan-portfolio",
-    image: portfolioImg,
+      "Developed an AI-powered productivity platform integrating 70+ smart tools with intelligent data analysis, real-time insights, and personalized workflow automation.",
+    tech: ["React", "TypeScript", "Firebase", "Three.js"],
+    github: "https://github.com/Madankk-06/TOOLKIT",
+    image: toolkitImg,
   },
-
   {
-    title: "MK-Homes Smart UI",
+    name: "Route Optimization",
+    faceName: "ROUTES",
+    tag: "02 — Short Route",
+    heading: "Last-Mile Routing \n Analyst",
     description:
-      "Built a smart home dashboard featuring an AI chatbot, real-time power monitoring panel, and per-room appliance control system. Designed 6 pages including device management, user profile, and settings with a fully responsive UI.",
-    tech: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-    ],
-    github: "https://github.com/Madankk-06/Mk-Homes-project",
-    image: mkhomesImg,
-  },
-
-  {
-    title: "Short Route Optimization",
-    description:
-      "This project implements a Shortest Route Optimization System similar to real-world ride-sharing and navigation platforms like Rapido, Uber, and Google Maps. The system uses Dijkstra’s Algorithm to compute the shortest path between locations represented as a weighted graph. It provides an efficient way to determine optimal routes, minimizing travel distance and improving decision-making. The project includes both a console-based system and a modern web interface using Streamlit, along with graph visualization and Google Maps integration for real-world relevance.",
-    tech: [
-      "Python",
-      "Streamlit",
-      "NetworkX",
-      "Google Maps",
-    ],
+      "Computed shortest travel paths over a Bengaluru road-network graph and integrated the GoogleMaps API for live visualization, reducing the routing time.",
+    tech: ["Python", "Streamlit", "NetworkX", "GMap"],
     github: "https://github.com/Madankk-06/shortest-route-optimization",
-    image: routeImg,
+    image: routingImg,
   },
-
   {
-    title: "Recipe Recommendation Agent",
+    name: "Anomaly Detection",
+    faceName: "ANOMALY",
+    tag: "03 — Machine Learning",
+    heading: " Price Anomalie \n Detector",
     description:
-      "Built a real-time recipe recommendation agent that accepts available ingredients and returns multi-cuisine dish options with preparation guides.Implemented a smart shopping list feature that auto-identifies missing ingredients from selected recipes. Included a user agreement and onboarding flow; tested with 20+ recipe combinations across 5 cuisine types.",
-    tech: [
-      "React",
-      "JavaScript",
-      "HTML",
-      "CSS",
-    ],
-    github: "https://github.com/Madankk-06/Recipe-recommendation-agent",
-    image: recipeImg,
+      "Engineered 12 predictive features from 50K vehicle records to detect anomalous pricing patterns. Analysed statistical methods and unsupervised anomaly detection to flag irregular pricing patterns, validated findings with data visualizations.",
+    tech: ["Python", "Pandas", "Scikit-learn"],
+    github:
+      "https://github.com/Madankk-06/Anomoly_Detection_Car_datas_Data-science",
+    image: anomalyImg,
   },
-
   {
-    title: "Pricing Fraud Detection",
+    name: "Youtube comment analysis",
+    faceName: "Opinion and Vibe Checker",
+    tag: "04 — Deep Learning",
+    heading: "Opinion and\n Vibe Checker",
     description:
-      "Engineered 12 predictive features (manufacturer, fuel type, mileage, engine size, vehicle age, pricing ratios, and usage metrics) from a dataset of 50,000 vehicle records to detect anomalous second-hand car pricing patterns. Implemented Isolation Forest, compared against Local Outlier Factor (LOF), Elliptic Envelope, and DBSCAN as benchmark anomaly detection models. Identified 2,450 high-risk pricing anomalies (5% of records) through ensemble anomaly detection techniques and statistical feature analysis.",
-    tech: [
-      "Python",
-      "Scikit-Learn",
-      "Pandas",
-    ],
-    github: "https://github.com/Madankk-06/Anomoly_Detection_Car_datas_Data-science",
-    image: fraudImg,
+      "Built an end-to-end data pipeline pulling comment data via API, cleaning and structuring it in MySQL, and NLP sentiment classification to surface actionable audience insights on a dashboard.",
+    tech: ["Python", "API V3", "NLTK", "MySQL"],
+    github: "https://github.com/Madankk-06/Mk-Homes-project",
+    image: sentimentImg,
   },
-
   {
-    title: "Optimal Action Preparation System",
+    name: "Signature Audit",
+    faceName: "AUDIT",
+    tag: "05 — Computer Vision",
+    heading: "BANK CHEQUE \n AUDIT SYSTEM",
     description:
-      "Optimal Action Preparation System (OAPS) is a UI/UX design project focused on addressing one of the most common challenges faced by students, professionals, and entrepreneurs: procrastination. The goal of the system is to provide users with a structured environment that helps them prepare, organize, prioritize, and execute tasks more effectively. Rather than simply managing tasks, OAPS focuses on preparing users for action, making it easier to begin and complete important work.",
-    tech: [
-      "Figma",
-      "UI/UX",
-    ],
-    github: "https://github.com/Madankk-06/Optimal-Action-Preparation-System",
-    image: oapsImg,
+      "Intelligent bank cheque signature verification system leveraging computer vision and deep learning to authenticate signatures and detect potential fraud.",
+    tech: ["Python", "OpenCV", "Deep Learning"],
+    github:
+      "https://github.com/Madankk-06/Bank-Cheque-Signature-Audit-System",
+    image: signatureImg,
   },
-
   {
-    title: "Technical Lifestyle Magazine",
+    name: "Realtime Transcriper",
+    faceName: "CAR DATA",
+    tag: "06 — Natural Language Processing",
+    heading: "EchoLingo",
     description:
-      "Tech Lifestyle Magazine is a 12-page editorial publication designed and developed as part of an industry interaction and knowledge-sharing initiative. The magazine captures interviews, experiences, technical perspectives, and career insights from professionals working at Tech Mahindra, Electronic City, Bengaluru. It combines editorial storytelling with modern visual design to create an engaging and informative reading experience. This publication was independently conceptualized, designed, and compiled using Canva and Figm",
-    tech: [
-      "Canva",
-      "Figma",
-    ],
-    github: "https://github.com/Madankk-06/Technical-Lifestyle-Magazine",
-    image: magazineImg,
+      "Realtime local language translator mobile application, 100% Offline, Customized Voice Synthesis, Organic Light Glassmorphic UI.",
+    tech: ["Java", "Neural Opus-MT", "Android SDK"],
+    github:
+      "https://github.com/Madankk-06/EchoLingo-Realtime-Translator",
+    image: translatorImg,
   },
 ];
 
+const ALL_PROJECTS = [
+  ...PROJECTS,
+  {
+    name: "madan-portfolio",
+    heading: "Portfolio Website",
+    description: "Premium personal portfolio website showcasing Generative AI applications, interactive elements, 3D shader backgrounds, and full-stack tools with standard SEO and clean visual optimization.",
+    tech: ["React", "Vite", "Framer Motion", "OGL"],
+    github: "https://github.com/Madankk-06/madan-portfolio"
+  },
+  {
+    name: "Recipe-recommendation-agent",
+    heading: "Recipe Recommendation Agent",
+    description: "Built a real-time recipe recommendation agent that accepts available ingredients and returns multi-cuisine dish options with preparation guides. Implemented a smart shopping list feature.",
+    tech: ["React", "JavaScript", "HTML", "CSS"],
+    github: "https://github.com/Madankk-06/Recipe-recommendation-agent"
+  },
+  {
+    name: "Optimal-Action-Preparation-System",
+    heading: "Optimal Action Preparation System (OAPS)",
+    description: "Optimal Action Preparation System (OAPS) is a UI/UX design project focused on addressing one of the most common challenges faced by students, professionals, and entrepreneurs: procrastination.",
+    tech: ["Figma", "UI/UX"],
+    github: "https://github.com/Madankk-06/Optimal-Action-Preparation-System"
+  },
+  {
+    name: "Mk-Homes-project",
+    heading: "MK Homes Smart UI",
+    description: "Smart home dashboard featuring an AI chatbot, real-time power monitoring, and per-room appliance control with 6 fully responsive pages.",
+    tech: ["HTML", "CSS", "JavaScript"],
+    github: "https://github.com/Madankk-06/Mk-Homes-project"
+  },
+  {
+    name: "Quiz-system-helps-professionals",
+    heading: "Quiz System Helps Professionals",
+    description: "An interactive assessment platform designed to help professionals test their skills, track technical proficiency, and identify domain knowledge gaps through customized quizes.",
+    tech: ["Java", "OOP & File handling", "Swing"],
+    github: "https://github.com/Madankk-06/OnlineQuizSystem"
+  },
+  {
+    name: "GradePredictor",
+    heading: "Student Grade Predictor",
+    description: "A predictive machine learning application that forecasts student academic performance and final grades based on demographic, social, and academic history variables.",
+    tech: ["Python", "Pandas", "Scikit-Learn", "Flask"],
+    github: "https://github.com/Madankk-06/GradePredictor"
+  }
+];
+
+/* ─── constants ─── */
+const FACE_ORDER = ["top", "front", "right", "back", "left", "bottom"];
+
+const STOPS = [
+  { rx: 90, ry: 0 },
+  { rx: 0, ry: 0 },
+  { rx: 0, ry: -90 },
+  { rx: 0, ry: -180 },
+  { rx: 0, ry: -270 },
+  { rx: -90, ry: -360 },
+];
+
+const easeIO = (t) => (t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t);
+
+/* ─── component ─── */
 export default function Projects() {
-  const [active, setActive] =
-    useState(0);
-
-  const [rotation, setRotation] =
-    useState(0);
-
-  const [isHovered, setIsHovered] =
-    useState(false);
-
-  const [hoveredCard, setHoveredCard] =
-    useState(null);
-
-  const [direction, setDirection] =
-    useState(-1);
-
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const galleryRef = useRef(null);
+  const stickyRef = useRef(null);
+  const cubeRef = useRef(null);
+  const cardsRef = useRef([]);
+  const dotsRef = useRef([]);
+  const captionNumRef = useRef(null);
+  const captionNameRef = useRef(null);
+  const hudPctRef = useRef(null);
+  const hudFillRef = useRef(null);
+  const hudNameRef = useRef(null);
 
   useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    let raf;
+    let lastNow = performance.now();
+    let lastIdx = -1;
+
+    const getProgress = () => {
+      const el = galleryRef.current;
+      if (!el) return 0;
+      const rect = el.getBoundingClientRect();
+      const scrollable = el.offsetHeight - window.innerHeight;
+      if (scrollable <= 0) return 0;
+      return Math.max(0, Math.min(1, -rect.top / scrollable));
+    };
+
+    let smooth = getProgress();
+
+    const updateActive = (idx) => {
+      if (idx === lastIdx) return;
+      lastIdx = idx;
+
+      cardsRef.current.forEach((card, i) => {
+        if (card) card.classList.toggle("pcube-card-active", i === idx);
+      });
+
+      dotsRef.current.forEach((dot, i) => {
+        if (dot) dot.classList.toggle("active", i === idx);
+      });
+
+      if (captionNumRef.current)
+        captionNumRef.current.textContent = String(idx + 1).padStart(2, "0");
+      if (captionNameRef.current)
+        captionNameRef.current.textContent = PROJECTS[idx].heading.replace(/\s*\n\s*/g, " ");
+      if (hudNameRef.current)
+        hudNameRef.current.textContent = PROJECTS[idx].heading.replace(/\s*\n\s*/g, " ");
+    };
+
+    const frame = (now) => {
+      raf = requestAnimationFrame(frame);
+
+      const dt = Math.min((now - lastNow) / 1000, 0.05);
+      lastNow = now;
+
+      const tgt = getProgress();
+      smooth += (tgt - smooth) * (1 - Math.exp(-dt * 8));
+      smooth = Math.max(0, Math.min(1, smooth));
+
+      /* ── check active state ── */
+      const el = galleryRef.current;
+      if (el && stickyRef.current) {
+        const rect = el.getBoundingClientRect();
+        const scrollable = el.offsetHeight - window.innerHeight;
+        const isActive = rect.top <= 10 && rect.top >= -(scrollable + 10);
+        stickyRef.current.classList.toggle("pcube-active", isActive);
+      }
+
+      /* ── rotate cube ── */
+      const N = STOPS.length;
+      const t = smooth * (N - 1);
+      const i = Math.min(Math.floor(t), N - 2);
+      const f = easeIO(t - i);
+      const a = STOPS[i];
+      const b = STOPS[i + 1];
+      const rx = a.rx + (b.rx - a.rx) * f;
+      const ry = a.ry + (b.ry - a.ry) * f;
+
+      if (cubeRef.current) {
+        cubeRef.current.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg)`;
+      }
+
+      /* ── HUD ── */
+      const pct = Math.round(smooth * 100);
+      if (hudPctRef.current)
+        hudPctRef.current.textContent = String(pct).padStart(3, "0") + "%";
+      if (hudFillRef.current) hudFillRef.current.style.width = `${pct}%`;
+
+      /* ── active project ── */
+      const idx = Math.min(
+        PROJECTS.length - 1,
+        Math.round(smooth * (PROJECTS.length - 1))
+      );
+      updateActive(idx);
+    };
+
+    updateActive(0);
+    raf = requestAnimationFrame(frame);
+    return () => cancelAnimationFrame(raf);
   }, []);
 
-  useEffect(() => {
-    if (isHovered) return;
-
-    const interval = setInterval(() => {
-      setRotation(
-        (prev) =>
-          prev +
-          direction *
-            (360 / projects.length)
-      );
-
-      if (direction === -1) {
-        setActive(
-          (prev) =>
-            (prev + 1) %
-            projects.length
-        );
-      } else {
-        setActive(
-          (prev) =>
-            (prev -
-              1 +
-              projects.length) %
-            projects.length
-        );
-      }
-    }, 2000);
-
-    return () =>
-      clearInterval(interval);
-  }, [isHovered, direction]);
-
-  const rotateLeft = () => {
-    setDirection(1);
-
-    setRotation(
-      (prev) =>
-        prev +
-        (360 / projects.length)
-    );
-
-    setActive(
-      (prev) =>
-        (prev -
-          1 +
-          projects.length) %
-        projects.length
-    );
+  const handleDotClick = (idx) => {
+    const gallery = galleryRef.current;
+    if (!gallery) return;
+    const galleryTop = gallery.getBoundingClientRect().top + window.scrollY;
+    const scrollable = gallery.offsetHeight - window.innerHeight;
+    const progress = idx / (PROJECTS.length - 1);
+    const targetY = galleryTop + progress * scrollable;
+    window.scrollTo({ top: targetY, behavior: "smooth" });
   };
-
-  const rotateRight = () => {
-    setDirection(-1);
-
-    setRotation(
-      (prev) =>
-        prev -
-        (360 / projects.length)
-    );
-
-    setActive(
-      (prev) =>
-        (prev + 1) %
-        projects.length
-    );
-  };
-
-  const selectedProject =
-    projects[active];
 
   return (
-    <FadeInSection>
-      <section id="projects">
-        <h2 className="section-title">
-          PROJECTS
-        </h2>
+    <section id="projects">
+      <h2 className="section-title">Projects</h2>
 
-        <div className="projects-carousel-wrapper">
+      {/* ── Cube Gallery ── */}
+      <div
+        className="pcube-gallery"
+        ref={galleryRef}
+        style={{ height: `${PROJECTS.length * 100}vh` }}
+      >
+        <div className="pcube-sticky" ref={stickyRef}>
+          {/* 3D Scene */}
+          <div className="pcube-scene">
+            <div className="pcube" ref={cubeRef}>
+              {PROJECTS.map((p, i) => (
+                <div key={i} className="pcube-face" data-face={FACE_ORDER[i]}>
+                  {p.image && <img src={p.image} alt={p.name} />}
+                </div>
+              ))}
+            </div>
+          </div>
 
-          <button
-            className="carousel-btn"
-            onClick={rotateLeft}
-          >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-            >
-              <path
-                d="M9 6L15 12L9 18"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+          {/* Navigation Dots */}
+          <div className="pcube-dots">
+            {PROJECTS.map((_, i) => (
+              <button
+                key={i}
+                ref={(el) => (dotsRef.current[i] = el)}
+                className={`pcube-dot ${i === 0 ? "active" : ""}`}
+                onClick={() => handleDotClick(i)}
+                aria-label={`Go to project ${i + 1}`}
               />
-            </svg>
-          </button>
+            ))}
+          </div>
 
-          <div
-            className="projects-carousel"
-            onMouseEnter={() =>
-              setIsHovered(true)
-            }
-            onMouseLeave={() =>
-              setIsHovered(false)
-            }
-          >
-            {projects.map(
-              (
-                project,
-                index
-              ) => {
-                const angle =
-                  index *
-                    (360 /
-                      projects.length) +
-                  rotation;
+          {/* Face Caption */}
+          <div className="pcube-caption">
+            <span className="pcube-caption-num" ref={captionNumRef}>
+              01
+            </span>
+            <span className="pcube-caption-name" ref={captionNameRef}>
+              {PROJECTS[0].heading.replace(/\s*\n\s*/g, " ")}
+            </span>
+          </div>
 
-                return (
-                  <div
-                    key={project.title}
-                    className={`carousel-card cursor-target ${
-                      active === index
-                        ? "active"
-                        : ""
-                    } ${
-                      hoveredCard ===
-                      index
-                        ? "hovered"
-                        : ""
-                    }`}
-                    onMouseEnter={() =>
-                      setHoveredCard(
-                        index
-                      )
-                    }
-                    onMouseLeave={() =>
-                      setHoveredCard(
-                        null
-                      )
-                    }
-                    onClick={() => {
-                      setActive(
-                        index
-                      );
+          {/* Progress HUD */}
+          <div className="pcube-hud">
+            <span ref={hudPctRef}>000%</span>
+            <div className="pcube-hud-bar">
+              <div className="pcube-hud-fill" ref={hudFillRef} />
+            </div>
+            <div className="pcube-hud-name" ref={hudNameRef}>
+              {PROJECTS[0].heading.replace(/\s*\n\s*/g, " ")}
+            </div>
+          </div>
+        </div>
 
-                      setRotation(
-                        -index *
-                          (360 /
-                            projects.length)
-                      );
-                    }}
-                    style={{
-                      transform: `
-                        rotateY(${angle}deg)
-                        translateZ(${
-                          windowWidth < 768
-                            ? (hoveredCard === index ? 240 : 200)
-                            : (hoveredCard === index ? 450 : 360)
-                        }px)
-                        scale(${
-                          hoveredCard ===
-                          index
-                            ? 1.08
-                            : 1
-                        })
-                      `,
-                    }}
+        {/* Scrollable text cards overlay */}
+        <div className="pcube-scroll-container">
+          {PROJECTS.map((p, i) => (
+            <div
+              key={i}
+              className={`pcube-section ${i % 2 !== 0 ? "right-align" : ""}`}
+            >
+              <div
+                ref={(el) => (cardsRef.current[i] = el)}
+                className={`pcube-card ${i % 2 !== 0 ? "right" : ""}`}
+              >
+                <div className="pcube-card-line" />
+                <div className="pcube-card-tag">{p.tag}</div>
+                <h3 className="pcube-card-title">{p.heading}</h3>
+                <p className="pcube-card-desc">{p.description}</p>
+                <div className="pcube-card-tech">
+                  {p.tech.map((t) => (
+                    <span key={t}>{t}</span>
+                  ))}
+                </div>
+                <div
+                  style={{
+                    marginTop: "1.5rem",
+                    display: "flex",
+                    justifyContent: i % 2 !== 0 ? "flex-end" : "flex-start"
+                  }}
+                >
+                  <SmokyButton
+                    href={p.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    <img
-                      src={
-                        project.image
-                      }
-                      alt={
-                        project.title
-                      }
-                    />
+                    GitHub
+                  </SmokyButton>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
 
-                    <div className="card-reflection"></div>
-
-                    <div className="card-overlay">
-                      {
-                        project.title
-                      }
-                    </div>
-                  </div>
-                );
-              }
-            )}
-          </div>
-
-          <button
-            className="carousel-btn"
-            onClick={rotateRight}
-          >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
+      {/* ── All Projects Grid ── */}
+      <div className="pcube-all-section">
+        <h3 className="pcube-all-title">Browse More</h3>
+        <div className="pcube-all-grid">
+          {ALL_PROJECTS.map((p, i) => (
+            <a
+              key={i}
+              href={p.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pcube-all-card"
             >
-              <path
-                d="M15 18L9 12L15 6"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
-
+              <span className="pcube-all-card-num">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h4>{p.heading.replace(/\s*\n\s*/g, " ")}</h4>
+              <p>{p.description}</p>
+              <div className="pcube-all-card-tech">
+                {p.tech.map((t) => (
+                  <span key={t}>{t}</span>
+                ))}
+              </div>
+            </a>
+          ))}
         </div>
-
-        <div className="project-details">
-
-          <h3>
-            {
-              selectedProject.title
-            }
-          </h3>
-
-          <p>
-            {
-              selectedProject.description
-            }
-          </p>
-
-          <div className="project-tech">
-            {selectedProject.tech.map(
-              (tech) => (
-                <span key={tech}>
-                  {tech}
-                </span>
-              )
-            )}
-          </div>
-
-          <a
-            href={
-              selectedProject.github
-            }
-            target="_blank"
-            rel="noreferrer"
-            className="project-btn cursor-target"
-          >
-            View Project
-          </a>
-
-        </div>
-      </section>
-    </FadeInSection>
+      </div>
+    </section>
   );
 }

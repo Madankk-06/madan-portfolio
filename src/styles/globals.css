@@ -162,7 +162,7 @@ section {
   color: #f2ff00;
 
   text-shadow:
-    0 0 20px rgba(96,165,250,.6);
+    0 0 20px rgba(242, 255, 0, 0.6);
 }
 
 /* ==========================================
@@ -179,9 +179,7 @@ section {
   align-items: center;
 
   text-align: center;
-  background: rgba(0,0,0,.55);
-
-  backdrop-filter: blur(8px);
+  background: transparent;
   padding-top: 120px;
 
   position: relative;
@@ -249,21 +247,21 @@ section {
 }
 
 .hero-title {
-  font-size: clamp(5rem, 25vw, 22rem);
+  font-size: clamp(3.5rem, 16vw, 14rem);
 
   line-height: 0.8;
 
   font-weight: 800;
 
-  letter-spacing: -18px;
+  letter-spacing: -10px;
 
   @media (max-width: 1024px) {
-    letter-spacing: -12px;
+    letter-spacing: -6px;
   }
 
   @media (max-width: 768px) {
-    font-size: clamp(3.5rem, 20vw, 10rem);
-    letter-spacing: -6px;
+    font-size: clamp(2.5rem, 13vw, 7rem);
+    letter-spacing: -3px;
   }
 
   text-transform: uppercase;
@@ -629,10 +627,9 @@ section {
   background: linear-gradient(
     180deg,
     #ffffff 0%,
-    #f2f2f2 20%,
-    #a6a6a6 50%,
-    #404040 80%,
-    #000000 100%
+    #d9e4ee 35%,
+    #ffe100d6 70%,
+    #f2ff00 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
@@ -703,10 +700,12 @@ section {
     0 0 30px rgba(96,165,250,.5),
     0 0 100px rgba(96,165,250,.25);
 }
-html,
-body,
-* {
-  cursor: none !important;
+@media (pointer: fine) {
+  html,
+  body,
+  * {
+    cursor: none !important;
+  }
 }
 
 .skill-card-inner {
@@ -1019,7 +1018,9 @@ body,
 
   border: 1px solid rgba(96,165,250,.2);
 
-  background: rgba(255,255,255,.8);
+  background: rgba(255,255,255,.06);
+
+  color: #fff;
 
   backdrop-filter: blur(20px);
 
@@ -1034,7 +1035,7 @@ body,
   align-items:center;
 
   box-shadow:
-    0 10px 40px rgba(0,0,0,.08);
+    0 10px 40px rgba(0,0,0,.4);
 
   @media (max-width: 768px) {
     width: 50px;
@@ -1060,7 +1061,7 @@ body,
 .carousel-btn:hover {
   transform: scale(1.08);
 
-  color: #2563eb;
+  color: #60a5fa;
 
   border-color: #60a5fa;
 
@@ -1354,6 +1355,7 @@ body,
   letter-spacing: 0.5px;
 }
 .experience-header h3 {
+  color: #f2ff00;
   font-size: 2.2rem;
   font-weight: 800;
   margin-bottom: 1rem;
@@ -1861,7 +1863,7 @@ body,
 
 .social-item span {
   color: rgb(0, 0, 0);
-  font-weight: 200px;
+  font-weight: 200;
   font-size: .72rem;
 
   letter-spacing: 1px;
@@ -2219,6 +2221,8 @@ body,
 .stat-card p {
   margin-top: 10px;
 }
+}
+
 .scroll-progress {
   position: fixed;
 
@@ -2230,12 +2234,7 @@ body,
 
   transform-origin: left;
 
-  background:
-    linear-gradient(
-      90deg,
-      #60A5FA,
-      #8B5CF6
-    );
+  background: #f2ff00;
 
   z-index: 99999;
 }
@@ -2272,26 +2271,16 @@ body,
 
 .white-wrapper {
   position: relative;
-
-  background: #ffffff;
-
-  color: #0c0c0c;
-
-  border-radius: 60px 60px 0 0;
-
   margin-top: 120px;
-
-  overflow: hidden;
-
   z-index: 5;
 }
 
 .white-wrapper section {
-  color: #0c0c0c;
+  color: inherit;
 }
 
 .white-wrapper h2 {
-  color: #0c0c0c;
+  color: inherit;
 }
 
 .white-gradient {
@@ -2388,5 +2377,101 @@ body,
   }
 }
 
+/* --- Smoky Button --- */
+.smoky-btn {
+  position: relative;
+  display: inline-block;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 500;
+  overflow: hidden;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+  border: none;
+  cursor: none;
+}
 
+.smoky-canvas-wrapper {
+  position: absolute;
+  inset: -16px;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.smoky-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.smoky-btn:hover .smoky-canvas {
+  transform: scale(1.22) rotate(8deg);
+}
+
+.smoky-content {
+  margin: 2px;
+  padding: 10px 24px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.65);
+  transition: background-color 0.3s ease;
+}
+
+.smoky-btn:hover .smoky-content {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.smoky-text {
+  color: rgba(255, 255, 255, 0.85);
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.smoky-btn:hover .smoky-text {
+  color: #ffffff;
+  transform: scale(1.05);
+  text-shadow: 0 0 10px rgba(242, 255, 0, 0.45);
+}
+
+/* --- Smoky Circular Button --- */
+.smoky-btn.is-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: 2px solid rgba(242, 255, 0, 0.3) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 10px rgba(242, 255, 0, 0.1);
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.smoky-btn.is-circle:hover {
+  border-color: #f2ff00 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 25px rgba(242, 255, 0, 0.5);
+  transform: translateY(-3px);
+}
+
+.smoky-btn.is-circle .smoky-canvas-wrapper {
+  border-radius: 50%;
+}
+
+.smoky-btn.is-circle .smoky-content {
+  border-radius: 50%;
+  margin: 2px;
+  padding: 0;
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.smoky-btn.is-circle .smoky-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.55rem;
 }

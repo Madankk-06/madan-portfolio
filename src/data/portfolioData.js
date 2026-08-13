@@ -20,12 +20,12 @@ import nextLogo from "../assets/skills/Nextjs.png";
 import jupyterLogo from "../assets/skills/jupyter.png"
 
 export const portfolioData = {
-  name: "Madan",
+  name: "Madan KK",
 
   tagline: "I Speak in Data and Think in AI",
 
   role:
-    "GENERATIVE AI DEVELOPER WITH A BUSINESS BRAIN",
+    "Full Stack Developer",
 
   email: "madankk2004@gmail.com",
   leetcode:"https://leetcode.com/u/madankk-04122004/",
@@ -36,7 +36,7 @@ export const portfolioData = {
     "https://linkedin.com/in/madankk04122004",
 
   about: `
-My name is MADAN KK, My work depends on intersection of Generative AI and practical product thinking. I spent 7 months generating revenue and understanding why customers say no, before I wrote my first serious line of code. That changes how I build. I think about adoption before architecture. Looking for the people who want that on their industry. I generated real revenue. I had real conversations. I understood the market before I study the stack. Now I build with that lens. The only history that is worth a damn is the history I make today.`,
+My name is MADAN KK, An ambitious Generative AI and Data Analytics professional who turns real-world problems into practical technology solutions. With hands-on expertise in Java,Python, SQL, Machine Learning, React.js, Google Cloud, and AI APIs, Developed impactful projects across analytics, NLP, routing, and intelligent productivity. His standout work includes DataSage, an AI-powered platform with 70+ smart tools, demonstrating his ability to combine innovation with usability. Currently pursuing an MCA in Generative AI with an 8.7 CGPA, I brings strong technical curiosity, analytical thinking, and a continuous-learning mindset. Driven to create scalable, intelligent solutions that deliver measurable value and make a meaningful impact in the technology industry.`,
 
   stacks: [
     {

@@ -3,19 +3,19 @@ import Stack from "./ExperienceStack";
 
 const experiences = [
   {
-    role: "Inside Sales Associate",
+    role: "INTERNSHIP",
     company: "FacePrep Campus",
     period: "Nov 2024 - Jun 2025",
     points: [
       "Optimized client pipeline and conversion strategies for 50+ weekly prospects.",
-      "Spearheaded business development and revenue generation initiatives.",
       "Facilitated complex client coordination and operational leadership.",
-      "Analyzed market trends to improve high-value customer engagement."
+      "Analyzed market trends to improve high-value customer engagement.",
+      "Tracked and managed a weekly pipeline of 100+ prospects using spreadsheet-based tracking, reviewing follow-up timing and response patterns to prioritize outreach toward higher-intent leads."
     ],
   },
 
   {
-    role: "UI/UX Developer [Online]",
+    role: "UI/UX DEVELOPER [ONLINE]",
     company: "L&T EduTech",
     period: "Apr 2023 - Jun 2023",
     points: [
@@ -27,7 +27,7 @@ const experiences = [
   },
 
   {
-    role: "Content Creator",
+    role: "CONTENT CREATOR",
     company: "Digital Newspaper",
     period: "Mar 2023 - Dec 2023",
     points: [
@@ -77,7 +77,6 @@ export default function Experience() {
             autoplay={true}
             autoplayDelay={4500}
             pauseOnHover={true}
-            randomRotation={true}
             sendToBackOnClick={true}
             sensitivity={120}
           />

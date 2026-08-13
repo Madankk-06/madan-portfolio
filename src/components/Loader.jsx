@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 
 export default function OrbitPreloader({ onComplete }) {
@@ -159,7 +159,7 @@ export default function OrbitPreloader({ onComplete }) {
     return () => {
       document.body.style.overflow = "auto";
     };
-  }, []);
+  }, [onComplete]);
 
   return (
     <>

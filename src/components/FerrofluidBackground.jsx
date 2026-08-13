@@ -14,4 +14,4 @@ export default function FerrofluidBackground() {
       />
     </div>
   );
-}
+} 

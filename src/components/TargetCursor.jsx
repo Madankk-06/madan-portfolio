@@ -32,7 +32,7 @@ const getContainingBlockOffset = block => {
 };
 
 const TargetCursor = ({
-  targetSelector = '.cursor-target',
+  targetSelector = 'button:not(footer *), a:not(footer *), .cursor-target:not(footer *)',
   spinDuration = 2,
   hideDefaultCursor = true,
   hoverDuration = 0.2,
@@ -176,7 +176,7 @@ const TargetCursor = ({
         }
       }
     };
-    window.addEventListener('scroll', scrollHandler, { passive: true });
+    window.addEventListener('scroll', scrollHandler, { capture: true, passive: true });
 
     const mouseDownHandler = () => {
       if (!dotRef.current) return;
@@ -327,7 +327,7 @@ const TargetCursor = ({
 
       window.removeEventListener('mousemove', moveHandler);
       window.removeEventListener('mouseover', enterHandler);
-      window.removeEventListener('scroll', scrollHandler);
+      window.removeEventListener('scroll', scrollHandler, { capture: true });
       window.removeEventListener('resize', resizeHandler);
       window.removeEventListener('mousedown', mouseDownHandler);
       window.removeEventListener('mouseup', mouseUpHandler);

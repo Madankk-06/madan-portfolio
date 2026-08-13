@@ -49,15 +49,13 @@ export default function App() {
 
           <About />
 
-          <div className="white-wrapper">
-            <Skills />
+          <Skills />
 
-            <Projects />
+          <Projects />
 
-            <Experience />
+          <Experience />
 
-            <Stats />
-          </div>
+          <Stats />
 
           <Contact />
 

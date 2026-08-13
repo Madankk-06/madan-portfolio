@@ -1,27 +1,38 @@
 import { motion } from "framer-motion";
-import { portfolioData } from "../data/portfolioData";
-import Magnet from "./Magnet";
-import avatar from "../assets/avatar/madan-avatar.png";
-import resume from "../assets/resume/Madan_KK_Resume.pdf";
+import SplitFlapText from "./SplitFlapText";
 
 export default function Hero() {
   return (
     <section className="hero" id="hero">
-
       <motion.div
         className="hero-content"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          textAlign: "center",
+          width: "100%"
+        }}
       >
-
         <motion.p
           className="hero-intro"
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
+          style={{
+            fontSize: "clamp(1.2rem, 2.5vw, 2rem)",
+            letterSpacing: "8px",
+            marginBottom: "15px",
+            textTransform: "uppercase",
+            color: "#9ca3af",
+            fontWeight: 600
+          }}
         >
-          HI, I'M
+          HELLO I'M
         </motion.p>
 
         <motion.h1
@@ -29,61 +40,39 @@ export default function Hero() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
+          style={{
+            margin: "0 auto 20px",
+            fontSize: "clamp(3.5rem, 18vw, 16rem)",
+            lineHeight: "0.85"
+          }}
         >
-          {portfolioData.name}
+          MADAN KK
         </motion.h1>
-      <Magnet strength={12}>
-        <motion.div
-          className="avatar-wrapper cursor-target"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.6 }}
-        >
-          <div className="avatar-glow"></div>
 
-          <img
-            src={avatar}
-            alt="Madan Avatar"
-            className="avatar"
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          style={{
+            margin: "10px auto 0",
+            display: "flex",
+            justifyContent: "center",
+            width: "100%",
+            overflow: "hidden"
+          }}
+        >
+          <SplitFlapText
+            words={[' WELCOME TO MY PORTFOLIO', '    HAPPY TO CONNECT ']}
+            cycleDelay={3000}
+            padTo={20}
+            fontSize="clamp(1.1rem, 3.5vw, 2.4rem)"
+            textColor="#9ca3af"
+            charset="alpha"
+            flipsPerChar={8}
           />
         </motion.div>
-</Magnet>
-        <motion.p
-          className="hero-role"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8 }}
-        >
-          {portfolioData.role}
-        </motion.p>
-
-        <motion.p
-          className="hero-tagline"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
-        >
-          "{portfolioData.tagline}"
-        </motion.p>
-
-        <motion.div
-           className="hero-buttons"
-           initial={{ opacity: 0 }}
-           animate={{ opacity: 1 }}
-           transition={{ delay: 1.2 }}
-         >
-           <a
-             href={resume}
-             download
-             className="primary-btn cursor-target"
-           >
-             Download Resume
-           </a>
-         </motion.div>
-
-       </motion.div>
-
-       <div className="hero-bottom-fade"></div>
-     </section>
+      </motion.div>
+      <div className="hero-bottom-fade"></div>
+    </section>
   );
 }

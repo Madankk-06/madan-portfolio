@@ -42,7 +42,6 @@ function CardRotate({ children, onSendToBack, sensitivity, disableDrag = false }
 }
 
 export default function Stack({
-  randomRotation = false,
   sensitivity = 200,
   cards = [],
   animationConfig = { stiffness: 260, damping: 20 },
@@ -118,11 +117,13 @@ export default function Stack({
     }
   });
 
-  useEffect(() => {
+  const [prevCards, setPrevCards] = useState(cards);
+  if (cards !== prevCards) {
+    setPrevCards(cards);
     if (cards.length) {
       setStack(cards.map((content, index) => ({ id: index + 1, content })));
     }
-  }, [cards]);
+  }
 
   const sendToBack = id => {
     setStack(prev => {
@@ -152,7 +153,6 @@ export default function Stack({
       onMouseLeave={() => pauseOnHover && setIsPaused(false)}
     >
       {stack.map((card, index) => {
-        const randomRotate = randomRotation ? Math.random() * 10 - 5 : 0;
         return (
           <CardRotate
             key={card.id}
