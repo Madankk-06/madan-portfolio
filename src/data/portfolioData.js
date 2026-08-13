@@ -27,7 +27,7 @@ import nlpLogo from "../assets/skills/nlp.png";
 export const portfolioData = {
   name: "Madan KK",
 
-  tagline: "I Speak in Data and Think in AI",
+  tagline: "I Speak in Data and Think like AI",
 
   role:
     "Full Stack Developer",

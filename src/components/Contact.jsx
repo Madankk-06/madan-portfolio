@@ -113,6 +113,23 @@ export default function Contact() {
                   <i className="bi bi-github"></i>
                 </SmokyButton>
 
+                {/* LeetCode */}
+                <SmokyButton
+                  href={portfolioData.leetcode}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="LeetCode"
+                  isCircle={true}
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    style={{ width: "1.35rem", height: "1.35rem", display: "inline-block", verticalAlign: "middle" }}
+                  >
+                    <path d="M16.102 17.93l-2.697 2.607c-.466.45-1.245.45-1.71 0L5.77 14.914c-.466-.45-.466-1.202 0-1.651l2.693-2.602c.466-.45 1.245-.45 1.71 0l5.929 5.618c.466.45.466 1.202 0 1.651zm.57-6.201l2.696-2.605c.466-.45.466-1.203 0-1.652l-5.928-5.62c-.466-.45-1.245-.45-1.71 0L9.034 6.458c-.466.45-.466 1.202 0 1.651l5.928 5.62c.466.45 1.245.45 1.71 0z"/>
+                  </svg>
+                </SmokyButton>
+
                 {/* Instagram */}
                 <SmokyButton
                   href="https://www.instagram.com/__.madan___?igsh=NThiOGZvMndlZG9x"
