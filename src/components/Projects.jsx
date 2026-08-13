@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import "./ProjectsCube.css";
 import SmokyButton from "./SmokyButton";
 import FadeInSection from "./FadeInSection";
+import PixelCard from "./PixelCard";
 
 import toolkitImg from "../assets/projects/toolkit.jpg";
 import routingImg from "../assets/projects/routing.jpg";
@@ -371,12 +372,16 @@ export default function Projects() {
             <h3 className="pcube-all-title">Browse More</h3>
             <div className="pcube-all-grid">
               {ALL_PROJECTS.map((p, i) => (
-                <a
+                <PixelCard
+                  as="a"
                   key={i}
                   href={p.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="pcube-all-card"
+                  colors="#f2ff00,#fde047,#eab308,#60a5fa"
+                  gap={6}
+                  speed={25}
                 >
                   <span className="pcube-all-card-num">
                     {String(i + 1).padStart(2, "0")}
@@ -388,7 +393,7 @@ export default function Projects() {
                       <span key={t}>{t}</span>
                     ))}
                   </div>
-                </a>
+                </PixelCard>
               ))}
             </div>
           </div>
@@ -503,12 +508,16 @@ export default function Projects() {
           <h3 className="pcube-all-title">Browse More</h3>
           <div className="pcube-all-grid">
             {ALL_PROJECTS.map((p, i) => (
-              <a
+              <PixelCard
+                as="a"
                 key={i}
                 href={p.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="pcube-all-card"
+                colors="#f2ff00,#fde047,#eab308,#60a5fa"
+                gap={6}
+                speed={25}
               >
                 <span className="pcube-all-card-num">
                   {String(i + 1).padStart(2, "0")}
@@ -520,7 +529,7 @@ export default function Projects() {
                     <span key={t}>{t}</span>
                   ))}
                 </div>
-              </a>
+              </PixelCard>
             ))}
           </div>
         </div>
