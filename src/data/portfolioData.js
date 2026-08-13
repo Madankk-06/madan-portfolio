@@ -18,6 +18,11 @@ import genaiLogo from "../assets/skills/genai.png";
 import viteLogo from "../assets/skills/Vite.png";
 import nextLogo from "../assets/skills/Nextjs.png";
 import jupyterLogo from "../assets/skills/jupyter.png"
+import javaLogo from "../assets/skills/java.png";
+import gcpLogo from "../assets/skills/gcp.png";
+import adkLogo from "../assets/skills/adk.png";
+import rlLogo from "../assets/skills/rl.png";
+import nlpLogo from "../assets/skills/nlp.png";
 
 export const portfolioData = {
   name: "Madan KK",
@@ -137,23 +142,23 @@ My name is MADAN KK, An ambitious Generative AI and Data Analytics professional 
     },
     {
         name: "Java",
-        // logo:
+        logo: javaLogo
     },
     {
       name: "Google Cloud",
-      // logo: 
+      logo: gcpLogo
     },
     {
       name: "ADK",
-      // logo:
+      logo: adkLogo
     },
     {
-      name: "R - Learning"
-      // logo: 
+      name: "R - Learning",
+      logo: rlLogo
     },
     {
       name: "NLP",
-      // logo: 
+      logo: nlpLogo
     }
 
 
