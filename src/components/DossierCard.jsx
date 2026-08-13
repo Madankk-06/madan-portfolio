@@ -5,6 +5,57 @@ import { portfolioData } from "../data/portfolioData";
 import SmokyButton from "./SmokyButton";
 import "./DossierCard.css";
 
+const CERTIFICATE_DOMAINS = [
+  {
+    name: "Generative AI & Deep Learning",
+    icon: "bi bi-cpu",
+    certs: [
+      { name: "Generative AI for Everyone", url: "https://www.coursera.org/account/accomplishments/verify/87DRMQUGOVJO" },
+      { name: "Advanced Prompt Engineering for Everyone", url: "https://www.coursera.org/account/accomplishments/verify/L0EHM9V3QIL2" },
+      { name: "Neural Networks and Deep Learning", url: "https://www.coursera.org/account/accomplishments/verify/D93RJUPOI6SQ" },
+      { name: "Fundamentals of Reinforcement Learning", url: "https://www.coursera.org/account/accomplishments/verify/AWB50RC945N3" },
+      { name: "Natural Language Processing with Classification and Vector Spaces", url: "https://www.coursera.org/account/accomplishments/verify/3U3FLKS649NI" },
+      { name: "Machine Learning with Python & Statistics", url: "https://www.coursera.org/account/accomplishments/verify/ASL0K64RCZOC" },
+    ]
+  },
+  {
+    name: "Data Science & Analytics",
+    icon: "bi bi-bar-chart-line",
+    certs: [
+      { name: "Data Analysis Using Python", url: "https://www.coursera.org/account/accomplishments/verify/2JCRKC3GD06J" },
+      { name: "Applied Statistics for Data Analytics", url: "https://www.coursera.org/account/accomplishments/verify/A1DTUCAZIR26" },
+      { name: "Google Sheets - Advanced Topics", url: "https://www.coursera.org/account/accomplishments/verify/TOGOJ74GOW9U" },
+    ]
+  },
+  {
+    name: "Software Engineering & Databases",
+    icon: "bi bi-code-square",
+    certs: [
+      { name: "Introduction to Software Engineering", url: "https://www.coursera.org/account/accomplishments/verify/BP9KDLPETCJ2" },
+      { name: "Advanced Data Structures and Algorithms", url: "https://www.coursera.org/account/accomplishments/verify/YILM3DNI62ZB" },
+      { name: "Java Programming for Beginners", url: "https://www.coursera.org/account/accomplishments/verify/BAHOO4AJ0W9Y" },
+      { name: "Introduction to Databases", url: "https://www.coursera.org/account/accomplishments/verify/L8AFFM4165XR" },
+      { name: "Computer Networks and Network Security", url: "https://www.coursera.org/account/accomplishments/verify/579ZM7BSNXAG" },
+    ]
+  },
+  {
+    name: "Front-End & UI/UX Design",
+    icon: "bi bi-palette",
+    certs: [
+      { name: "Introduction to Front-End Development", url: "https://www.coursera.org/account/accomplishments/verify/0R0WB1Z52E7M" },
+      { name: "User Interface Design and Prototyping", url: "https://www.coursera.org/account/accomplishments/verify/7L3LP5ZEJBFE" },
+      { name: "Python GUI Development: Design & Build Apps", url: "https://www.coursera.org/account/accomplishments/verify/B9P4ZL4IU23N" },
+    ]
+  },
+  {
+    name: "Digital Marketing & Business",
+    icon: "bi bi-megaphone",
+    certs: [
+      { name: "Attract and Engage Customers with Digital Marketing", url: "https://www.coursera.org/account/accomplishments/verify/2P2LXXJTBAP1" },
+    ]
+  }
+];
+
 export default function DossierCard() {
   const [activeTab, setActiveTab] = useState("main");
   const [tabNumber, setTabNumber] = useState("01");
@@ -260,170 +311,28 @@ export default function DossierCard() {
               <h1>Certifications</h1>
               <h2>credentials / courses / specialties</h2>
 
-              <div className="dossier-certList">
-                <a
-                  href="https://www.coursera.org/account/accomplishments/verify/87DRMQUGOVJO"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="dossier-certLinkItem cursor-target"
-                >
-                  <i className="bi bi-patch-check-fill"></i>
-                  <span>Generative AI for Everyone</span>
-                </a>
-                <a
-                  href="https://www.coursera.org/account/accomplishments/verify/AWB50RC945N3"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="dossier-certLinkItem cursor-target"
-                >
-                  <i className="bi bi-patch-check-fill"></i>
-                  <span>Fundamentals of Reinforcement Learning</span>
-                </a>
-                <a
-                  href="https://www.coursera.org/account/accomplishments/verify/3U3FLKS649NI"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="dossier-certLinkItem cursor-target"
-                >
-                  <i className="bi bi-patch-check-fill"></i>
-                  <span>Natural Language Processing with Classification and Vector Spaces</span>
-                </a>
-                <a
-                  href="https://www.coursera.org/account/accomplishments/verify/579ZM7BSNXAG"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="dossier-certLinkItem cursor-target"
-                >
-                  <i className="bi bi-patch-check-fill"></i>
-                  <span>Computer Networks and Network Security</span>
-                </a>
-                <a
-                  href="https://www.coursera.org/account/accomplishments/verify/BP9KDLPETCJ2"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="dossier-certLinkItem cursor-target"
-                >
-                  <i className="bi bi-patch-check-fill"></i>
-                  <span>Introduction to Software Engineering</span>
-                </a>
-                <a
-                  href="https://www.coursera.org/account/accomplishments/verify/D93RJUPOI6SQ"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="dossier-certLinkItem cursor-target"
-                >
-                  <i className="bi bi-patch-check-fill"></i>
-                  <span>Neural Networks and Deep Learning</span>
-                </a>
-                <a
-                  href="https://www.coursera.org/account/accomplishments/verify/BAHOO4AJ0W9Y"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="dossier-certLinkItem cursor-target"
-                >
-                  <i className="bi bi-patch-check-fill"></i>
-                  <span>Java Programming for Beginners</span>
-                </a>
-                <a
-                  href="https://www.coursera.org/account/accomplishments/verify/YILM3DNI62ZB"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="dossier-certLinkItem cursor-target"
-                >
-                  <i className="bi bi-patch-check-fill"></i>
-                  <span>Advanced Data Structures and Algorithms</span>
-                </a>
-                <a
-                  href="https://www.coursera.org/account/accomplishments/verify/L8AFFM4165XR"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="dossier-certLinkItem cursor-target"
-                >
-                  <i className="bi bi-patch-check-fill"></i>
-                  <span>Introduction to Databases</span>
-                </a>
-                <a
-                  href="https://www.coursera.org/account/accomplishments/verify/B9P4ZL4IU23N"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="dossier-certLinkItem cursor-target"
-                >
-                  <i className="bi bi-patch-check-fill"></i>
-                  <span>Python GUI Development: Design & Build Apps</span>
-                </a>
-                <a
-                  href="https://www.coursera.org/account/accomplishments/verify/ASL0K64RCZOC"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="dossier-certLinkItem cursor-target"
-                >
-                  <i className="bi bi-patch-check-fill"></i>
-                  <span>Machine Learning with Python & Statistics</span>
-                </a>
-                <a
-                  href="https://www.coursera.org/account/accomplishments/verify/A1DTUCAZIR26"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="dossier-certLinkItem cursor-target"
-                >
-                  <i className="bi bi-patch-check-fill"></i>
-                  <span>Applied Statistics for Data Analytics</span>
-                </a>
-                <a
-                  href="https://www.coursera.org/account/accomplishments/verify/TOGOJ74GOW9U"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="dossier-certLinkItem cursor-target"
-                >
-                  <i className="bi bi-patch-check-fill"></i>
-                  <span>Google Sheets - Advanced Topics</span>
-                </a>
-                <a
-                  href="https://www.coursera.org/account/accomplishments/verify/2P2LXXJTBAP1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="dossier-certLinkItem cursor-target"
-                >
-                  <i className="bi bi-patch-check-fill"></i>
-                  <span>Attract and Engage Customers with Digital Marketing</span>
-                </a>
-                <a
-                  href="https://www.coursera.org/account/accomplishments/verify/L0EHM9V3QIL2"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="dossier-certLinkItem cursor-target"
-                >
-                  <i className="bi bi-patch-check-fill"></i>
-                  <span>Advanced Prompt Engineering for Everyone</span>
-                </a>
-                <a
-                  href="https://www.coursera.org/account/accomplishments/verify/7L3LP5ZEJBFE"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="dossier-certLinkItem cursor-target"
-                >
-                  <i className="bi bi-patch-check-fill"></i>
-                  <span>User Interface Design and Prototyping</span>
-                </a>
-                <a
-                  href="https://www.coursera.org/account/accomplishments/verify/2JCRKC3GD06J"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="dossier-certLinkItem cursor-target"
-                >
-                  <i className="bi bi-patch-check-fill"></i>
-                  <span>Data Analysis Using Python</span>
-                </a>
-                <a
-                  href="https://www.coursera.org/account/accomplishments/verify/0R0WB1Z52E7M"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="dossier-certLinkItem cursor-target"
-                >
-                  <i className="bi bi-patch-check-fill"></i>
-                  <span>Introduction to Front-End Development</span>
-                </a>
-              </div>
+              {CERTIFICATE_DOMAINS.map((domain, dIdx) => (
+                <div key={dIdx} className="dossier-certDomainGroup">
+                  <h3 className="dossier-certDomainTitle">
+                    <i className={domain.icon}></i>
+                    {domain.name}
+                  </h3>
+                  <div className="dossier-certList">
+                    {domain.certs.map((c, cIdx) => (
+                      <a
+                        key={cIdx}
+                        href={c.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="dossier-certLinkItem cursor-target"
+                      >
+                        <i className="bi bi-patch-check-fill"></i>
+                        <span>{c.name}</span>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
