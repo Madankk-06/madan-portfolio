@@ -26,3 +26,9 @@
   height: 100%;
   overflow: hidden;
 }
+
+@media (max-width: 768px) {
+  .global-ferrofluid {
+    display: none !important;
+  }
+}
