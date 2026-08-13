@@ -601,8 +601,8 @@
 }
 
 .pcube-all-card-num {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.6rem;
+  font-family: 'EB Garamond', Garamond, 'Times New Roman', serif;
+  font-size: 0.7rem;
   letter-spacing: 0.2em;
   color: #60a5fa;
   margin-bottom: 0.75rem;
@@ -610,17 +610,18 @@
 }
 
 .pcube-all-card h4 {
-  font-family: 'Kanit', sans-serif;
-  font-size: 1.2rem;
+  font-family: 'EB Garamond', Garamond, 'Times New Roman', serif;
+  font-size: 1.3rem;
   font-weight: 700;
   color: #f2ff00;
   margin-bottom: 0.6rem;
 }
 
 .pcube-all-card p {
-  font-size: 0.8rem;
-  line-height: 1.65;
-  color: rgba(255, 255, 255, 0.45);
+  font-family: 'EB Garamond', Garamond, 'Times New Roman', serif;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.55);
   margin-bottom: 1.25rem;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -635,9 +636,9 @@
 }
 
 .pcube-all-card-tech span {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.5rem;
-  letter-spacing: 0.12em;
+  font-family: 'EB Garamond', Garamond, 'Times New Roman', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #93c5fd;
   padding: 0.2rem 0.55rem;
