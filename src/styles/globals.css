@@ -114,30 +114,38 @@ section {
 
 @media (max-width: 768px) {
   .navbar {
-    gap: 20px;
-    padding: 16px;
+    gap: clamp(10px, 3.5vw, 24px);
+    padding: 18px 16px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: space-around;
+    scrollbar-width: none;
+  }
+  .navbar::-webkit-scrollbar {
+    display: none;
   }
   .navbar a {
-    font-size: 13px;
+    font-size: clamp(13px, 3.2vw, 17px) !important;
     letter-spacing: 1px;
+    flex-shrink: 0;
   }
 }
 
 @media (max-width: 480px) {
   .navbar {
-    gap: 12px;
-    padding: 12px 8px;
+    padding: 14px 10px;
   }
   .navbar a {
-    font-size: 11px;
+    font-size: clamp(11px, 3vw, 14px) !important;
     letter-spacing: 0.5px;
   }
 }
 
 .navbar a {
-  font-size: 17px;
+  font-size: 21px;
   text-transform: uppercase;
   letter-spacing: 2px;
+  font-weight: 600;
 
   transition: all 0.3s ease;
 }
@@ -2155,16 +2163,8 @@ section {
 ========================================== */
 
 @media (max-width: 768px) {
-  .navbar {
-    gap: 16px;
-    flex-wrap: wrap;
-    
-  }
 
-  .navbar a {
-    font-size: 12px;
-  }
-
+  /* Navbar responsive override moved to core navbar section */
   .hero-role {
     font-size: 16px;
   }

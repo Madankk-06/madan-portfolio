@@ -194,19 +194,15 @@
 /* --- Responsive Layout --- */
 @media (max-width: 900px) {
   .connect-post {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-    padding: 2rem;
+    grid-template-columns: min-content 1fr;
+    gap: clamp(1rem, 3.5vw, 2.5rem);
+    padding: clamp(1.2rem, 3vw, 2.2rem);
     border-radius: 20px;
   }
   
-  .connect-left {
-    order: -1;
-  }
-  
   .connect-avatar {
-    --avw: 260px;
-    --avh: 380px;
+    --avw: clamp(120px, 28vw, 240px);
+    --avh: clamp(170px, 40vw, 350px);
   }
   
   .connect-avatar img {
@@ -216,11 +212,86 @@
   
   .connect-avatar .info {
     width: var(--avw);
+    height: var(--avh);
+    font-size: 0.72rem;
+    padding: 0.8rem;
   }
   
   .connect-right {
     min-height: auto;
-    gap: 2rem;
-    align-items: center;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+
+  .connect-name {
+    margin-bottom: 0.4rem;
+  }
+
+  .connect-subtitle {
+    margin-bottom: 1.2rem;
+  }
+  
+  .connect-social-bar {
+    gap: clamp(8px, 2vw, 15px);
+  }
+
+  .smoky-btn.is-circle {
+    width: clamp(44px, 10vw, 56px) !important;
+    height: clamp(44px, 10vw, 56px) !important;
+  }
+
+  .smoky-btn.is-circle .smoky-text {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+  }
+}
+
+@media (max-width: 540px) {
+  .connect-post {
+    gap: 1rem;
+    padding: 1rem 0.75rem;
+  }
+
+  .connect-avatar {
+    --avw: clamp(90px, 25vw, 130px);
+    --avh: clamp(130px, 36vw, 190px);
+    border-radius: 12px;
+  }
+
+  .connect-avatar img,
+  .connect-avatar::before,
+  .connect-avatar:hover img {
+    border-radius: 12px;
+  }
+
+  .connect-avatar .info {
+    display: none;
+  }
+
+  .connect-right {
+    gap: 1rem;
+  }
+
+  .connect-name {
+    font-size: clamp(1.3rem, 5.5vw, 1.9rem);
+  }
+
+  .connect-subtitle {
+    font-size: clamp(0.6rem, 2.2vw, 0.78rem);
+    letter-spacing: 1.5px;
+    margin-bottom: 0.8rem;
+  }
+
+  .connect-social-bar {
+    gap: 8px;
+  }
+
+  .smoky-btn.is-circle {
+    width: 38px !important;
+    height: 38px !important;
+    border-width: 1.5px !important;
+  }
+
+  .smoky-btn.is-circle .smoky-text {
+    font-size: 0.9rem;
   }
 }
