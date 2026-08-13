@@ -341,21 +341,22 @@ section {
 }
 
 .hero-title {
+  font-family: 'Syne', sans-serif;
   font-size: clamp(3.5rem, 16vw, 14rem);
 
   line-height: 0.8;
 
   font-weight: 800;
 
-  letter-spacing: -10px;
+  letter-spacing: -0.05em;
 
   @media (max-width: 1024px) {
-    letter-spacing: -6px;
+    letter-spacing: -0.04em;
   }
 
   @media (max-width: 768px) {
     font-size: clamp(2.5rem, 13vw, 7rem);
-    letter-spacing: -3px;
+    letter-spacing: -0.03em;
   }
 
   text-transform: uppercase;
