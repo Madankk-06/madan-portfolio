@@ -59,7 +59,7 @@ export default function Contact() {
             <div className="connect-avatar">
               <img src={mkLogo} alt="Madan Portrait" />
               <div className="info">
-                GENERATIVE AI DEVELOPER WITH A BUSINESS BRAIN
+                GENERATIVE AI DEVELOPER WITH A BUSINESS BRAIN 
               </div>
             </div>
           </div>

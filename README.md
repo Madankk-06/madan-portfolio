@@ -1,140 +1,90 @@
 # 🚀 Madan KK Portfolio
 
-A modern, interactive, and fully responsive developer portfolio built to showcase my work in Full Stack Development, Generative AI, Machine Learning, and UI/UX Design.
+A modern, interactive, and fully responsive developer portfolio built to showcase my work in **Generative AI, Full Stack Development, Data Analytics, Machine Learning, and UI/UX Design**.
 
-Designed with a strong focus on user experience, smooth animations, physics-based interactions, and premium visual aesthetics, this portfolio serves as both a professional showcase and a playground for experimenting with modern frontend technologies.
+Designed with a focus on immersive user experiences, smooth 3D animations, physics-based interactions, and a luxury dark/gold cyberpunk aesthetic.
 
 ---
 
 ## 🌐 Live Demo
 
-🔗 Portfolio Website: https://madan-portfolio-orcin.vercel.app/
-
-🔗 GitHub Repository: https://github.com/Madankk-06/madan-portfolio
+- **🔗 Live Portfolio**: [https://madan-portfolio-orcin.vercel.app/](https://madan-portfolio-orcin.vercel.app/)
+- **🔗 GitHub Repository**: [https://github.com/Madankk-06/madan-portfolio](https://github.com/Madankk-06/madan-portfolio)
 
 ---
 
 ## 📌 Overview
 
-This portfolio was built from scratch using React and Vite with the goal of creating an immersive browsing experience rather than a traditional static portfolio.
-
-Every section was carefully designed to provide smooth interactions, engaging visuals, and intuitive navigation while maintaining performance and responsiveness across devices.
-
-The project combines modern frontend development practices with advanced UI animations and interactive components to create a memorable user experience.
+This portfolio is crafted from the ground up using **React**, **Vite**, **Framer Motion**, and **WebGL** shaders. Rather than a conventional static CV website, it delivers an engaging, tactile journey through my engineering work, technical skillset, professional experience, and academic milestones.
 
 ---
 
-# ✨ Features
+# ✨ Core Features & Sections
 
-### 🎯 Hero Section
+### 🎯 1. Hero Section
+- Dynamic split-flap mechanical text flipping animation (**"HAPPY TO CONNECT"**).
+- Ultra-bold gradient typography with golden glow.
+- Interactive custom **Target Cursor** with smart corner brackets.
+- Ambient WebGL **Ferrofluid** fluid particle background that reacts smoothly to user movement.
+- Smooth scroll-down navigation indicator.
 
-- Large animated typography
-- Magnetic avatar interaction
-- Custom cursor support
-- Smooth entrance animations
-- Resume download functionality
+### 👤 2. Know Me Section (Interactive Dossier)
+- Cyberpunk-inspired multi-tab executive dossier card.
+- Built-in interactive audio player widget with ambient track selection.
+- Multi-tab navigation:
+  - **MAIN**: Full identity, Executive Summary, quick resume download, and core focus.
+  - **EDUCATION**: Master of Computer Applications (MCA) & academic foundation.
+  - **CERTIFICATIONS**: Categorized domains across Generative AI & Deep Learning, Data Science & Analytics, Software Engineering, Front-End & UI/UX, and Digital Marketing with direct verification links.
 
-### 👨‍💻 About Section
+### 🚀 3. Projects Showcase (3D Cube Gallery & Browse More)
+- **3D Cube Gallery**: A 3D cube scene that rotates through flagship applications as the user scrolls.
+- Synchronized project details panel with live tech tags, descriptions, and direct GitHub links.
+- **Browse More Grid**: Full catalog of projects powered by dynamic **PixelCard** canvas animations that reveal the project upon interaction.
 
-- Professional introduction
-- Career overview
-- Modern typography styling
-- Smooth reveal animations
+### 💼 4. Experience Section (3D Stack Deck)
+- 3D swipeable card stack deck with physics-based drag and click interactions.
+- Smooth Framer Motion spring physics with swipe-to-back cycling.
+- High-contrast dark styling with sweeping metallic reflection sheens and editorial typography.
 
-### 🧩 Interactive Skills Section
+### 🏆 5. Achievements & Statistics
+- Key performance metrics showcasing certifications, coding milestones, and delivered projects.
+- High-contrast glassmorphic card design.
 
-- Physics-based 3D skill cubes
-- Wave-like hover interactions
-- Dynamic technology showcase
-- Responsive layout
-
-### 🚀 Projects Showcase
-
-- Interactive cylindrical 3D project carousel
-- Hover effects and glow animations
-- Dynamic project information panel
-- Smooth transitions between projects
-
-### 💼 Experience Section
-
-- Professional experience timeline
-- Animated stack cards
-- Smooth scroll interactions
-
-### 🏆 Achievements Section
-
-- Animated statistics cards
-- Modern glassmorphism styling
-- Responsive design
-
-### 📬 Contact Section
-
-- Professional contact form
-- Social media integration
-- Interactive UI components
-- Custom illustrated profile section
-
-### 🦶 Footer
-
-- Professional navigation links
-- Social connections
-- Technology stack overview
+### 📬 6. Connect Section (3D Tilt Contact Card)
+- 3D mouse-tracking interactive tilt card.
+- Direct-action email contact input trigger.
+- One-click links to **LinkedIn**, **GitHub**, **LeetCode**, **Instagram**, and **Resume PDF**.
 
 ---
 
-# 🎨 Interactive Elements
+# 🎨 Interactive & Visual Highlights
 
-This portfolio includes several advanced UI interactions:
-
-✅ Custom Target Cursor
-
-✅ Magnetic Avatar Effects
-
-✅ Physics-Based Hover Animations
-
-✅ Scroll Progress Indicator
-
-✅ Smooth Scroll Reveal Animations
-
-✅ Dynamic Project Carousel
-
-✅ Interactive Skill Cubes
-
-✅ Glassmorphism Effects
-
-✅ Gradient Typography
-
-✅ Micro-interactions Throughout
+- ✅ **Custom Target Cursor** with active bounding box locking.
+- ✅ **WebGL Ferrofluid Fluid Particles** dynamic background.
+- ✅ **3D Perspective Scroll Cube** for project showcases.
+- ✅ **Physics-Based Card Stacking Deck** with gesture dragging.
+- ✅ **Pixel-Canvas Hover Effects** on secondary project cards.
+- ✅ **Split-Flap Mechanical Character Flip** typography.
+- ✅ **Glassmorphic Multi-Tab Dossier** interface.
+- ✅ **Adaptive Mobile-Responsive Layouts** across all screen sizes.
 
 ---
 
 # 🛠️ Tech Stack
 
-## Frontend
+### Frontend & Core
+- **React 18** — Component architecture & state management
+- **Vite** — High-speed build tooling and bundling
+- **JavaScript (ES6+)** — Modern asynchronous logic
+- **CSS3 / PostCSS** — Custom dark-theme styling, glassmorphism, 3D transforms
 
-- React.js
-- Vite
-- JavaScript (ES6+)
-- CSS3
+### Animation & 3D
+- **Framer Motion** — Spring physics, layout animations, and gesture tracking
+- **HTML5 Canvas & WebGL** — Interactive pixel grids and fluid shaders
 
-## Animation & Interaction
-
-- Framer Motion
-- Custom Cursor Effects
-- Physics-Based Hover Interactions
-
-## UI/UX
-
-- Responsive Design
-- Glassmorphism
-- Modern Gradients
-- Interactive Components
-
-## Development Tools
-
-- Git
-- GitHub
-- VS Code
+### Development & Deployment
+- **Git & GitHub** — Version control and collaborative workflows
+- **Vercel** — Automated continuous deployment and edge hosting
 
 ---
 
@@ -142,34 +92,39 @@ This portfolio includes several advanced UI interactions:
 
 ```bash
 src/
-│
 ├── assets/
-│   ├── avatar/
-│   ├── projects/
-│   ├── skills/
-│   ├── contact/
-│   └── resume/
+│   ├── avatar/       # Profile photos, 3D avatars, and headshots
+│   ├── contact/      # Social icons and contact assets
+│   ├── logo/         # Personal brand logo (MK)
+│   ├── projects/     # Flagship project showcase preview images
+│   ├── resume/       # PDF resume download file
+│   └── skills/       # Technology and framework logos
 │
 ├── components/
-│   ├── Hero.jsx
-│   ├── About.jsx
-│   ├── Skills.jsx
-│   ├── Projects.jsx
-│   ├── Experience.jsx
-│   ├── Stats.jsx
-│   ├── Contact.jsx
-│   ├── Footer.jsx
-│   ├── Navbar.jsx
-│   └── ...
+│   ├── About.jsx             # Know Me section container
+│   ├── Contact.jsx           # 3D interactive Connect card
+│   ├── DossierCard.jsx       # Multi-tab dossier card with certs & audio
+│   ├── Experience.jsx        # Experience container
+│   ├── ExperienceStack.jsx   # 3D Framer Motion card stack component
+│   ├── FerrofluidBackground.jsx # WebGL fluid particle background
+│   ├── Hero.jsx              # Hero section with split-flap typography
+│   ├── Loader.jsx            # Animated intro loading screen
+│   ├── Navbar.jsx            # Floating header navigation bar
+│   ├── PixelCard.jsx         # Interactive pixel-grid canvas card
+│   ├── Projects.jsx          # 3D project cube & Browse More grid
+│   ├── ScrollProgress.jsx    # Top scroll progress bar
+│   ├── SplitFlapText.jsx     # Mechanical text flip animator
+│   ├── Stats.jsx             # Key metrics & achievements
+│   └── TargetCursor.jsx      # Custom crosshair target cursor
 │
 ├── data/
-│   └── portfolioData.js
+│   └── portfolioData.js      # Central data source for skills & bio
 │
 ├── styles/
-│   └── globals.css
+│   └── globals.css           # Global CSS variables, animations & layout
 │
-├── App.jsx
-└── main.jsx
+├── App.jsx                   # Application root composition
+└── main.jsx                  # React DOM entry point
 ```
 
 ---
@@ -177,191 +132,108 @@ src/
 # 🖼️ Screenshots
 
 ## Loader Section
-
 ![Loader Section](screenshots/loader.jpeg)
 
+---
+
 ## Hero Section
-
-![Hero Section](screenshots/hero.jpeg)
-
----
-
-## Skills Section
-
-![Skills Section](screenshots/skills.jpeg)
+![Hero Section](screenshots/hero.png)
 
 ---
 
-## Projects Carousel
+## Know Me Section
+![Know Me Section](screenshots/know_me.png)
 
-![Projects Section](screenshots/projects.jpeg)
+---
+
+## Projects Showcase
+![Projects Section](screenshots/projects.png)
 
 ---
 
 ## Experience Section
-
-![Experience Section](screenshots/experience.jpeg)
+![Experience Section](screenshots/experience.png)
 
 ---
 
-## Contact Section
-
-![Contact Section](screenshots/contact.jpeg)
+## Connect Section
+![Connect Section](screenshots/contact.png)
 
 ---
 
 # 🚀 Featured Projects
 
-## 🏠 MK Homes Smart UI
+### 🛠️ Toolkit Application
+AI-powered developer productivity platform integrating 70+ intelligent tools with workflow automation, real-time analytics, and data processing.
+- **Tech**: React, TypeScript, Firebase, Three.js
 
-Smart home dashboard featuring:
+### 🗺️ Last-Mile Routing Analyst
+Shortest-path graph optimization over road networks using Dijkstra's algorithm and Google Maps API visualization.
+- **Tech**: Python, Streamlit, NetworkX, Google Maps API
 
-- AI chatbot
-- Real-time power monitoring
-- Appliance control system
-- Responsive user experience
+### 🚗 Price Anomaly Detector
+Machine learning system for detecting fraudulent and anomalous used vehicle listings across 50K+ records using unsupervised anomaly detection models.
+- **Tech**: Python, Pandas, Scikit-learn, Isolation Forest, DBSCAN
 
----
+### 💬 YouTube Opinion & Vibe Checker
+End-to-end NLP data pipeline extracting comments via API, storing in MySQL, and classifying sentiment trends and audience sentiment.
+- **Tech**: Python, YouTube Data API v3, NLTK, MySQL
 
-## 🗺️ Route Optimization System
+### ✍️ Bank Cheque Signature Audit System
+Computer vision and deep learning authentication tool verifying signatures on bank cheques to detect forgery.
+- **Tech**: Python, OpenCV, Deep Learning
 
-Implemented shortest-path prediction using:
-
-- Dijkstra's Algorithm
-- NetworkX
-- Streamlit
-- Google Maps Integration
-
----
-
-## 🍳 Recipe Recommendation Agent
-
-Real-time recipe recommendation platform:
-
-- Ingredient-based suggestions
-- Smart shopping list generation
-- Multi-cuisine support
+### 🌐 EchoLingo Realtime Translator
+Offline voice and text translation application with customized voice synthesis and glassmorphic UI.
+- **Tech**: Java, Neural Opus-MT, Android SDK
 
 ---
 
-## 🚗 Car Pricing Fraud Detection
+# 🔧 Local Installation & Setup
 
-Machine Learning project for identifying pricing anomalies:
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/Madankk-06/madan-portfolio.git
+   ```
 
-- Isolation Forest
-- LOF
-- DBSCAN
-- Elliptic Envelope
+2. **Navigate to the project directory**:
+   ```bash
+   cd madan-portfolio
+   ```
 
-Dataset Size:
+3. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-- 50,000+ records
+4. **Start the local development server**:
+   ```bash
+   npm run dev
+   ```
 
----
+5. **Build for production**:
+   ```bash
+   npm run build
+   ```
 
-## 🎯 Optimal Action Preparation System
-
-Productivity-focused UI/UX project:
-
-- High-fidelity Figma prototype
-- Goal planning workflows
-- Progress tracking
-
----
-
-## 📰 Technical Lifestyle Magazine
-
-Designed and published a technology magazine featuring:
-
-- Cybersecurity
-- AI
-- Software Development
-- Analytics
-
----
-
-# 📈 Performance Goals
-
-- Fully Responsive Design
-- Optimized Asset Loading
-- Smooth User Interactions
-- Scalable Component Architecture
-- Cross-Device Compatibility
-
----
-
-# 🔧 Installation
-
-Clone the repository:
-
-```bash
-git clone https://github.com/Madankk-06/madan-portfolio.git
-```
-
-Navigate to the project:
-
-```bash
-cd madan-portfolio
-```
-
-Install dependencies:
-
-```bash
-npm install
-```
-
-Start development server:
-
-```bash
-npm run dev
-```
-
-Build for production:
-
-```bash
-npm run build
-```
-
-Preview production build:
-
-```bash
-npm run preview
-```
-
----
-
-# 🎯 Future Improvements
-
-- SEO Optimization
-- Blog Integration
-- Dark/Light Theme Toggle
-- Project Filtering
-- Analytics Dashboard
-- Enhanced 3D Interactions
-- AI-Powered Portfolio Assistant
+6. **Preview production build**:
+   ```bash
+   npm run preview
+   ```
 
 ---
 
 # 👨‍💻 Author
 
-### Madan KK
+**Madan KK**  
+*Generative AI Engineer | Full Stack Developer*
 
-Full Stack Developer | Generative AI Enthusiast | UI/UX Designer
-
-📧 Email: madankumar06052003@gmail.com
-
-🔗 LinkedIn: https://linkedin.com/in/madankk06
-
-🔗 GitHub: https://github.com/Madankk-06
-
----
-
-# ⭐ Support
-
-If you found this project useful or inspiring, consider giving it a star ⭐ on GitHub.
-
-It helps others discover the project and supports my work.
+- 🌐 **Portfolio**: [madan-portfolio-orcin.vercel.app](https://madan-portfolio-orcin.vercel.app/)
+- 💼 **LinkedIn**: [linkedin.com/in/madankk04122004](https://linkedin.com/in/madankk04122004)
+- 🐙 **GitHub**: [github.com/Madankk-06](https://github.com/Madankk-06)
+- 🧠 **LeetCode**: [leetcode.com/u/madankk-04122004](https://leetcode.com/u/madankk-04122004/)
+- 📧 **Email**: [madankk2004@gmail.com](mailto:madankk2004@gmail.com)
 
 ---
 
-## Built with ❤️ by Madan KK
+⭐ **If you like this project, feel free to star the repository!**
