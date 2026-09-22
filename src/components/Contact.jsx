@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import mkLogo from "../assets/logo/mk-logo.png";
+import madanConnect from "../assets/avatar/madan-connect.jpg";
 import resumePdf from "../assets/resume/Madan_KK_Resume.pdf";
 import { portfolioData } from "../data/portfolioData";
 import FadeInSection from "./FadeInSection";
@@ -57,7 +57,7 @@ export default function Contact() {
           {/* Left Column: Avatar Image */}
           <div className="connect-left">
             <div className="connect-avatar">
-              <img src={mkLogo} alt="Madan Portrait" />
+              <img src={madanConnect} alt="Madan Portrait" />
               <div className="info">
                 GENERATIVE AI DEVELOPER WITH A BUSINESS BRAIN 
               </div>

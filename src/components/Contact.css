@@ -216,10 +216,9 @@
   border-radius: 16px;
   z-index: 0;
   display: block;
-  transform: scale(1.1);
-  transform-origin: center 20%;
+  transform: scale(1.04);
+  transform-origin: center center;
   mix-blend-mode: normal;
-  filter: grayscale(100%) contrast(1.25) brightness(1.05);
 }
 
 .connect-avatar .info {
