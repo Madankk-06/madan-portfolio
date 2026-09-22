@@ -394,7 +394,7 @@ export default function OrbitPreloader({ onComplete }) {
 
   <text className="orbit-text">
     <textPath href="#loader-orbit-3" startOffset="33%" textLength="240">
-      Transformers
+      Agents
     </textPath>
   </text>
 
