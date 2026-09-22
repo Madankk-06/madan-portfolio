@@ -388,13 +388,13 @@ export default function OrbitPreloader({ onComplete }) {
 
   <text className="orbit-text">
     <textPath href="#loader-orbit-2" startOffset="31%" textLength="280">
-      Full Stack
+      LLM & RAG
     </textPath>
   </text>
 
   <text className="orbit-text">
     <textPath href="#loader-orbit-3" startOffset="33%" textLength="240">
-      React
+      Transformers
     </textPath>
   </text>
 
@@ -412,13 +412,13 @@ export default function OrbitPreloader({ onComplete }) {
 
   <text className="orbit-text">
     <textPath href="#loader-orbit-6" startOffset="31%" textLength="200">
-      Prompting
+      AGENTS
     </textPath>
   </text>
 
   <text className="orbit-text">
     <textPath href="#loader-orbit-7" startOffset="33%" textLength="210">
-      Designer
+      JAVA
     </textPath>
   </text>
 
